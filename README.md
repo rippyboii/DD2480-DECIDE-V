@@ -1,4 +1,5 @@
 # DD2480-DECIDE-V
+This is group V
 
 ## Requirements
 - Java 21 (JDK)
