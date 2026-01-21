@@ -19,4 +19,11 @@ public class MathHelpTest {
         Point p2 = new Point(-1, 1);
         assertEquals(MathHelp.calculateDistance(p1, p2), Math.sqrt(2));
     }
+
+     @Test
+    void testDistanceBetween10and20is10() {
+        Point p1 = new Point(10, 0);
+        Point p2 = new Point(20, 0);
+        assertEquals(MathHelp.calculateDistance(p1, p2), 10);
+    }
 }
