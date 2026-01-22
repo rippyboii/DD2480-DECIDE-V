@@ -40,7 +40,7 @@ public class MathHelpTest {
         Point p1 = new Point(123.2, 145.2);
         Point p2 = new Point(123.2, 145.2);
         Point p3 = new Point(123.2, 145.2);
-        assertEquals(0, MathHelp.calculateSmallestRadius(p1, p2, p3));
+        assertEquals(0, MathHelp.calculateSmallestRadius(p1, p2, p3),1e-10);
     }
 
     @Test
@@ -48,7 +48,7 @@ public class MathHelpTest {
         Point p1 = new Point(1, 2);
         Point p2 = new Point(-1, -2);
         Point p3 = new Point(0,0);
-        assertEquals(2.5, MathHelp.calculateSmallestRadius(p1, p2, p3)); 
+        assertEquals(Math.sqrt(5), MathHelp.calculateSmallestRadius(p1, p2, p3),1e-10); 
     }
 
     @Test
@@ -56,18 +56,31 @@ public class MathHelpTest {
         Point p1 = new Point(0, 0);
         Point p2 = new Point(0, 8);
         Point p3 = new Point(-2, 2);
-        assertEquals(4, MathHelp.calculateSmallestRadius(p1, p2, p3));
+        assertEquals(4, MathHelp.calculateSmallestRadius(p1, p2, p3),1e-10);
     }
 
     @Test
     void acuteTriangleReturnsTheCircumRadius () {
-        Point p1 = new Point(0, 0);
-        Point p2 = new Point(0, 8);
-        Point p3 = new Point(-2, 2);
+        Point p1 = new Point(-5, -1);
+        Point p2 = new Point(7, -1);
+        Point p3 = new Point(0, 6);
         // the result is supposed to be 6.0827625302982
         // do boleans due to working with doubles (introduce epsilon/threshold)
-        assertEquals(6.0827625302982, MathHelp.calculateSmallestRadius(p1, p2, p3), 0.0001);
+        assertEquals(6.0827625302982, MathHelp.calculateSmallestRadius(p1, p2, p3), 1e-10);
     }
+
+    // ------------------- Tests for circumcenter function ----------------
+    @Test
+    void testCircumcenterCalculation() {
+        Point p1 = new Point(-5, -1);
+        Point p2 = new Point(7, -1);
+        Point p3 = new Point(0, 6);
+        Point center = MathHelp.calculateCircumcenter(p1, p2, p3);
+        assertEquals(1, center.x(),1e-10);
+        assertEquals(0, center.y(),1e-10);
+    }
+
+
 
     // ------------------- Tests for cross product function ---------------
     @Test
