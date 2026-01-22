@@ -57,7 +57,7 @@ public class MathHelp {
         double d3 = calculateDistance(p3, p1);
         double max_d = Math.max(d1, Math.max(d2, d3));
         // check if the points are collinear (2D cross product) (also applies to if points are identical)
-        if (v1[0] * v2[1] - v1[1]*v2[0] == 0) {
+        if (Math.abs(v1[0] * v2[1] - v1[1]*v2[0]) < 1e-10) {
             
             return max_d / 2.0;
         }
@@ -97,7 +97,7 @@ public class MathHelp {
         // check if the points are collinear or identical
         double[] v1 = {p1.x() - p2.x(), p1.y() - p2.y()};
         double[] v2 = {p2.x() - p3.x(), p2.y() - p3.y()};
-        if (v1[0] * v2[1] - v1[1]*v2[0] == 0) {
+        if (Math.abs(v1[0] * v2[1] - v1[1]*v2[0]) < 1e-10) {
             throw new IllegalArgumentException("The points are collinear, no circumcenter exists!");
         }
         // calculate lines that go through midpoints of two sides of the triangle

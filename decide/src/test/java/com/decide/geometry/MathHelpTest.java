@@ -137,8 +137,9 @@ public class MathHelpTest {
     @Test
     void collinearPointsThrowExceptionForCircumcenter() {
         Point p1 = new Point(-5, 1);
-        Point p2 = new Point(0, 0);
+        Point p2 = new Point(-1, 0.2);
         Point p3 = new Point(5, -1);
+
         assertThrows(IllegalArgumentException.class,
             () -> {
                 MathHelp.calculateCircumcenter(p1, p2, p3);
