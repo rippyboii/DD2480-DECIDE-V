@@ -3,8 +3,11 @@ package com.decide.model;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 import com.decide.model.*;
 
 public class DecideInputTest {
@@ -13,13 +16,18 @@ public class DecideInputTest {
     private boolean[] puv;
     private Connector[][] lcm;
 
-    // Constants
+    /* #region Constants */
+
     // Minimum 2 points
     private final static int LOWER_VALID = 2;
     private final static int LOWER_INVALID = 1;
+
     // Maximum 100 points
     private final static int UPPER_VALID = 100;
     private final static int UPPER_INVALID = 101;
+
+    private final static int LIC_COUNT = 15;
+    /* #endregion */
 
     @BeforeEach
     public void setup() {
@@ -37,7 +45,7 @@ public class DecideInputTest {
         ArrayList<Point> points = this.generatePoints(LOWER_VALID);
 
         Parameters params = new Parameters();
-        boolean[] puv = new boolean[]{true, false};
+        boolean[] puv = this.generatePUV(LIC_COUNT);
         Connector[][] lcm = new Connector[][]{
             {Connector.AND, Connector.OR},
             {Connector.NOT_USED, Connector.AND}
@@ -55,7 +63,7 @@ public class DecideInputTest {
         ArrayList<Point> points = generatePoints(LOWER_INVALID);
 
         Parameters params = new Parameters();
-        boolean[] puv = new boolean[]{true, false};
+        boolean[] puv = this.generatePUV(LIC_COUNT);
         Connector[][] lcm = new Connector[][]{
             {Connector.AND}
         };
@@ -72,7 +80,7 @@ public class DecideInputTest {
         ArrayList<Point> points = this.generatePoints(UPPER_VALID);
 
         Parameters params = new Parameters();
-        boolean[] puv = new boolean[]{true, false};
+        boolean[] puv = this.generatePUV(LIC_COUNT);
         Connector[][] lcm = new Connector[][]{
             {Connector.AND, Connector.OR},
             {Connector.NOT_USED, Connector.AND}
@@ -90,7 +98,7 @@ public class DecideInputTest {
         ArrayList<Point> points = this.generatePoints(UPPER_INVALID);
 
         Parameters params = new Parameters();
-        boolean[] puv = new boolean[]{true, false};
+        boolean[] puv = this.generatePUV(LIC_COUNT);
         Connector[][] lcm = new Connector[][]{
             {Connector.AND, Connector.OR},
             {Connector.NOT_USED, Connector.AND}
@@ -101,6 +109,33 @@ public class DecideInputTest {
             new DecideInput(params, points, puv, lcm);
         });
     }
+
+
+    @Test
+    public void testInvalidPUMSize() {
+        // Create a list with valid number of points
+        ArrayList<Point> points = this.generatePoints(UPPER_VALID);
+
+        Parameters params = new Parameters();
+        boolean[] puv1 = this.generatePUV(LIC_COUNT - 1); // Invalid size
+        boolean[] puv2 = this.generatePUV(LIC_COUNT + 1); // Invalid size
+
+        Connector[][] lcm = new Connector[][]{
+            {Connector.AND, Connector.OR},
+            {Connector.NOT_USED, Connector.AND}
+        };
+
+        
+        // Assert
+        assertThrows(IllegalArgumentException.class, () -> {
+            new DecideInput(params, points, puv1, lcm);
+        });
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            new DecideInput(params, points, puv2, lcm);
+        });
+    }
+
 
     /**
      * Helper method to generate a list of points
@@ -114,4 +149,21 @@ public class DecideInputTest {
         }
         return points;
     }
+
+    /**
+     * Helper method to generate a random PUV array
+     * @param length Length of the PUV array
+     * @return Generated PUV array
+     */
+    private boolean[] generatePUV(int length) {
+        Random rand = new Random();
+        boolean[] puv = new boolean[length];
+        for (int i = 0; i < length; i++) {
+            puv[i] = rand.nextBoolean();
+        }
+        return puv;
+    }
+
+
+    
 }
