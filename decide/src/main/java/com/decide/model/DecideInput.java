@@ -38,6 +38,11 @@ public class DecideInput {
             throw new IllegalArgumentException("LCM must be a " + LIC_COUNT + "x" + LIC_COUNT + " matrix");
         }
 
+        // Validate LCM symmetry
+        if (!isSymmetric(lcm)) {
+            throw new IllegalArgumentException("LCM must be symmetric");
+        }
+
         // Assign values
         this.parameters = params;
         this.points = points;
@@ -51,5 +56,29 @@ public class DecideInput {
      */
     public int getNumPoints() {
         return this.points.size();
+    }
+
+
+    /**
+     * Helper method to check if a LCM matrix is symmetric
+     * @param matrix LCM Matrix to check
+     * @return true if symmetric, false otherwise
+     */
+    private boolean isSymmetric(Connector[][] matrix) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        // Check for square matrix
+        if (rows != cols) { return false; }
+
+        // Check symmetry
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (matrix[i][j] != matrix[j][i]) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
