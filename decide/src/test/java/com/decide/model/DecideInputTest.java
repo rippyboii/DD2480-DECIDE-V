@@ -1,139 +1,39 @@
 package com.decide.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-import com.decide.model.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class DecideInputTest {
+public abstract class DecideInputTest {
 
-    private Parameters params;
-    private boolean[] puv;
-    private Connector[][] lcm;
+    protected Parameters params;
+    protected ArrayList<Point> points_valid;
+    protected boolean[] puv_valid;
+    protected Connector[][] lcm_valid;
 
     /* #region Constants */
 
     // Minimum 2 points
-    private final static int LOWER_VALID = 2;
-    private final static int LOWER_INVALID = 1;
+    protected final static int LOWER_VALID = 2;
+    protected final static int LOWER_INVALID = 1;
 
     // Maximum 100 points
-    private final static int UPPER_VALID = 100;
-    private final static int UPPER_INVALID = 101;
+    protected final static int UPPER_VALID = 100;
+    protected final static int UPPER_INVALID = 101;
 
-    private final static int LIC_COUNT = 15;
+    protected final static int LIC_COUNT = 15;
     /* #endregion */
 
     @BeforeEach
     public void setup() {
         this.params = new Parameters();
-        this.puv = new boolean[]{true, false};
-        this.lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-    }
-
-    @Test
-    public void testValidWith2Points() {
-        // Generate 2 points
-        ArrayList<Point> points = this.generatePoints(LOWER_VALID);
-
-        Parameters params = new Parameters();
-        boolean[] puv = this.generatePUV(LIC_COUNT);
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-        
-        DecideInput input = new DecideInput(params, points, puv, lcm);
-
-        // Assert
-        assertEquals(LOWER_VALID, input.getNumPoints());
-    }
-
-    @Test
-    public void testInvalidWith1Point() {
-        // Generate 1 point
-        ArrayList<Point> points = generatePoints(LOWER_INVALID);
-
-        Parameters params = new Parameters();
-        boolean[] puv = this.generatePUV(LIC_COUNT);
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND}
-        };
-        
-        // Assert
-        assertThrows(IllegalArgumentException.class, () -> {
-            new DecideInput(params, points, puv, lcm);
-        });
-    }
-
-    @Test
-    public void testValidWith100Points() {
-        // Create a list with 100 points
-        ArrayList<Point> points = this.generatePoints(UPPER_VALID);
-
-        Parameters params = new Parameters();
-        boolean[] puv = this.generatePUV(LIC_COUNT);
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-        
-        DecideInput input = new DecideInput(params, points, puv, lcm);
-
-        // Assert
-        assertEquals(UPPER_VALID, input.getNumPoints());
-    }
-
-    @Test
-    public void testInvalidWith101Points() {
-        // Create a list with 101 points
-        ArrayList<Point> points = this.generatePoints(UPPER_INVALID);
-
-        Parameters params = new Parameters();
-        boolean[] puv = this.generatePUV(LIC_COUNT);
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-        
-        // Assert
-        assertThrows(IllegalArgumentException.class, () -> {
-            new DecideInput(params, points, puv, lcm);
-        });
-    }
-
-
-    @Test
-    public void testInvalidPUMSize() {
-        // Create a list with valid number of points
-        ArrayList<Point> points = this.generatePoints(UPPER_VALID);
-
-        Parameters params = new Parameters();
-        boolean[] puv1 = this.generatePUV(LIC_COUNT - 1); // Invalid size
-        boolean[] puv2 = this.generatePUV(LIC_COUNT + 1); // Invalid size
-
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-
-        
-        // Assert
-        assertThrows(IllegalArgumentException.class, () -> {
-            new DecideInput(params, points, puv1, lcm);
-        });
-
-        assertThrows(IllegalArgumentException.class, () -> {
-            new DecideInput(params, points, puv2, lcm);
-        });
+        this.points_valid = generatePoints(UPPER_VALID);
+        this.puv_valid = generatePUV(LIC_COUNT);
+        this.lcm_valid = generateLCM(LIC_COUNT);
     }
 
 
@@ -142,7 +42,7 @@ public class DecideInputTest {
      * @param numPoints Number of points to generate
      * @return List of generated points
      */
-    private ArrayList<Point> generatePoints(int numPoints) {
+    protected ArrayList<Point> generatePoints(int numPoints) {
         ArrayList<Point> points = new ArrayList<Point>();
         for (int i = 0; i < numPoints; i++) {
             points.add(new Point(i * 1.0, i * 2.0));
@@ -155,13 +55,34 @@ public class DecideInputTest {
      * @param length Length of the PUV array
      * @return Generated PUV array
      */
-    private boolean[] generatePUV(int length) {
+    protected boolean[] generatePUV(int length) {
         Random rand = new Random();
         boolean[] puv = new boolean[length];
         for (int i = 0; i < length; i++) {
             puv[i] = rand.nextBoolean();
         }
         return puv;
+    }
+
+    /**
+     * Helper method to generate a random LCM matrix
+     * @param rows Number of rows
+     * @param cols Number of columns
+     * @return Generated LCM matrix
+     */
+    protected Connector[][] generateLCM(int size) {
+        Random rand = new Random();
+        Connector[][] lcm = new Connector[size][size];
+        Connector[] connectors = Connector.values();
+
+        // Populate LCM with random connectors
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                lcm[i][j] = connectors[rand.nextInt(connectors.length)];
+                lcm[j][i] = lcm[i][j]; // Symmetry
+            }
+        }
+        return lcm;
     }
 
 
