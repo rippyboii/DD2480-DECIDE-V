@@ -8,7 +8,15 @@ import org.junit.jupiter.api.Test;
 
 
 public class DecideInputPointsTest extends DecideInputTest {
-
+    /**
+     * Contract:
+     * The DecideInput constructor should allow 2 points, which is the minimum 
+     * valid number of points.
+     *
+     * Expected Behavior:
+     * When provided with exactly 2 points, the constructor shall successfully 
+     * create a DecideInput instance.
+     */
     @Test
     public void testValidWith2Points() {
         // Generate 2 points
@@ -19,7 +27,14 @@ public class DecideInputPointsTest extends DecideInputTest {
         assertEquals(LOWER_VALID, input.getNumPoints());
     }
 
-    
+    /**
+     * Contract:
+     * The DecideInput constructor should NOT allow 1 point, which is below the minimum 
+     * valid number of points.
+     *
+     * Expected Behavior:
+     * When provided with exactly 1 point, the constructor shall throw an IllegalArgumentException.
+     */
     @Test
     public void testInvalidWith1Point() {
         // Generate 1 point
@@ -31,6 +46,15 @@ public class DecideInputPointsTest extends DecideInputTest {
         });
     }
 
+    /**
+     * Contract:
+     * The DecideInput constructor should allow 100 points, which is the maximum 
+     * valid number of points.
+     *
+     * Expected Behavior:
+     * When provided with exactly 100 points, the constructor shall successfully 
+     * create a DecideInput instance.
+     */
     @Test
     public void testValidWith100Points() {
         // Create a list with 100 points
@@ -42,6 +66,14 @@ public class DecideInputPointsTest extends DecideInputTest {
         assertEquals(UPPER_VALID, input.getNumPoints());
     }
 
+    /**
+     * Contract:
+     * The DecideInput constructor should NOT allow 101 points, which is above the maximum 
+     * valid number of points.
+     *
+     * Expected Behavior:
+     * When provided with exactly 101 points, the constructor shall throw an IllegalArgumentException.
+     */
     @Test
     public void testInvalidWith101Points() {
         // Create a list with 101 points

@@ -7,6 +7,33 @@ import org.junit.jupiter.api.Test;
 
 public class DecideInputLCMTest extends DecideInputTest {
     
+    /**
+     * Contract:
+     * The DecideInput constructor should accept a valid LCM matrix of size 15x15,
+     * which is the required size for the LCM.
+     *
+     * Expected Behavior:
+     * When provided with a valid LCM matrix of size 15x15, the constructor shall 
+     * successfully create a DecideInput instance.
+     */
+    @Test
+    public void testValidLCMSize() {
+        DecideInput input = new DecideInput(params, points_valid, puv_valid, lcm_valid);
+
+        // Assert valid size
+        assertEquals(LIC_COUNT, input.lcm.length);
+        assertEquals(LIC_COUNT, input.lcm[0].length);
+    }
+
+    /**
+     * Contract:
+     * The DecideInput constructor should NOT accept an invalid LCM matrix size,
+     * which is not 15x15.
+     *
+     * Expected Behavior:
+     * When provided with an LCM matrix size other than 15x15, the constructor shall 
+     * throw an IllegalArgumentException.
+     */
     @Test
     public void testInvalidLCMSize() {
         // Off by one sizes
@@ -23,13 +50,14 @@ public class DecideInputLCMTest extends DecideInputTest {
         });
     }
 
-
-    @Test
-    public void testValidLCMSymmetry() {
-        // Assert symmetry
-        assertEquals(true, isSymmetric(lcm_valid));
-    }
-
+    /**
+     * Contract:
+     * The DecideInput constructor should NOT accept an LCM matrix that is not symmetric.
+     *
+     * Expected Behavior:
+     * When provided with a non-symmetric LCM matrix, the constructor shall throw an 
+     * IllegalArgumentException.
+     */
     @Test
     public void testInvalidLCMSymmetry() {
         // Generate a valid LCM
