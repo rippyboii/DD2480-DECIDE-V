@@ -50,7 +50,7 @@ public class MathHelp {
      */
     public static double calculateSmallestRadius(Point p1, Point p2, Point p3) {
         // calculate the vectors from points
-        double[] v1 = {p1.x() - p2.x(), p1.y() - p1.y()};
+        double[] v1 = {p1.x() - p2.x(), p1.y() - p2.y()};
         double[] v2 = {p2.x() - p3.x(), p2.y() - p3.y()};
         double d1 = calculateDistance(p1, p2);
         double d2 = calculateDistance(p2, p3);
@@ -63,9 +63,9 @@ public class MathHelp {
         }
         // check if the triangle is obtuse or acute
 
-        double angle1 = angle_check.angleRadians(p1.x(),p1.y(),p2.x(),p2.y(),p3.x(),p3.y());
-        double angle2 = angle_check.angleRadians(p3.x(),p3.y(),p1.x(),p1.y(),p2.x(),p2.y());
-        double angle3 = angle_check.angleRadians(p2.x(),p2.y(),p3.x(),p3.y(),p1.x(),p1.y());
+        double angle1 = AngleCheck.angleRadians(p1.x(),p1.y(),p2.x(),p2.y(),p3.x(),p3.y());
+        double angle2 = AngleCheck.angleRadians(p3.x(),p3.y(),p1.x(),p1.y(),p2.x(),p2.y());
+        double angle3 = AngleCheck.angleRadians(p2.x(),p2.y(),p3.x(),p3.y(),p1.x(),p1.y());
 
         if (Math.abs(angle1) > Math.PI/2 || Math.abs(angle2) > Math.PI/2 || Math.abs(angle3) > Math.PI/2) {
             return max_d / 2.0;
@@ -95,7 +95,7 @@ public class MathHelp {
      */
     public static Point calculateCircumcenter(Point p1, Point p2, Point p3) {
         // check if the points are collinear or identical
-        double[] v1 = {p1.x() - p2.x(), p1.y() - p1.y()};
+        double[] v1 = {p1.x() - p2.x(), p1.y() - p2.y()};
         double[] v2 = {p2.x() - p3.x(), p2.y() - p3.y()};
         if (v1[0] * v2[1] - v1[1]*v2[0] == 0) {
             throw new IllegalArgumentException("The points are collinear, no circumcenter exists!");
