@@ -1,10 +1,10 @@
 package com.decide.geometry;
 
 
-public final class angle_check {
+public final class AngleCheck {
 
     // Prevent instantiation (utility class)
-    private angle_check() {}
+    private AngleCheck() {}
 
     public static double angleRadians(
             double ax, double ay,
