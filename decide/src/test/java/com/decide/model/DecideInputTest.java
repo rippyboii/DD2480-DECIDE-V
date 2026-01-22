@@ -1,44 +1,90 @@
 package com.decide.model;
 
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
-import com.decide.model.*;
+import java.util.Random;
 
-public class DecideInputTest {
-    @Test
-    public void testValidWith2Points() {
-        ArrayList<Point> points = new ArrayList<Point>();
-        points.add(new Point(1.0, 2.0));
-        points.add(new Point(3.0, 4.0));
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-        Parameters params = new Parameters();
-        boolean[] puv = new boolean[]{true, false};
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-        
-        DecideInput input = new DecideInput(params, points, puv, lcm);
+public abstract class DecideInputTest {
 
-        assertEquals(2, input.getNumPoints());
+    protected Parameters params;
+    protected ArrayList<Point> points_valid;
+    protected boolean[] puv_valid;
+    protected Connector[][] lcm_valid;
+
+    /* #region Constants */
+
+    // Minimum 2 points
+    protected final static int LOWER_VALID = 2;
+    protected final static int LOWER_INVALID = 1;
+
+    // Maximum 100 points
+    protected final static int UPPER_VALID = 100;
+    protected final static int UPPER_INVALID = 101;
+
+    protected final static int LIC_COUNT = 15;
+    /* #endregion */
+
+    @BeforeEach
+    public void setup() {
+        this.params = new Parameters();
+        this.points_valid = generatePoints(UPPER_VALID);
+        this.puv_valid = generatePUV(LIC_COUNT);
+        this.lcm_valid = generateLCM(LIC_COUNT);
     }
 
-    @Test
-    public void testIValidWith2Points() {
+
+    /**
+     * Helper method to generate a list of points
+     * @param numPoints Number of points to generate
+     * @return List of generated points
+     */
+    protected ArrayList<Point> generatePoints(int numPoints) {
         ArrayList<Point> points = new ArrayList<Point>();
-        points.add(new Point(1.0, 2.0));
-        points.add(new Point(3.0, 4.0));
-
-        Parameters params = new Parameters();
-        boolean[] puv = new boolean[]{true, false};
-        Connector[][] lcm = new Connector[][]{
-            {Connector.AND, Connector.OR},
-            {Connector.NOT_USED, Connector.AND}
-        };
-        
-        DecideInput input = new DecideInput(params, points, puv, lcm);
-
-        assertEquals(2, input.getNumPoints());
+        for (int i = 0; i < numPoints; i++) {
+            points.add(new Point(i * 1.0, i * 2.0));
+        }
+        return points;
     }
+
+    /**
+     * Helper method to generate a random PUV array
+     * @param length Length of the PUV array
+     * @return Generated PUV array
+     */
+    protected boolean[] generatePUV(int length) {
+        Random rand = new Random();
+        boolean[] puv = new boolean[length];
+        for (int i = 0; i < length; i++) {
+            puv[i] = rand.nextBoolean();
+        }
+        return puv;
+    }
+
+    /**
+     * Helper method to generate a random LCM matrix
+     * @param rows Number of rows
+     * @param cols Number of columns
+     * @return Generated LCM matrix
+     */
+    protected Connector[][] generateLCM(int size) {
+        Random rand = new Random();
+        Connector[][] lcm = new Connector[size][size];
+        Connector[] connectors = Connector.values();
+
+        // Populate LCM with random connectors
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                lcm[i][j] = connectors[rand.nextInt(connectors.length)];
+                lcm[j][i] = lcm[i][j]; // Symmetry
+            }
+        }
+        return lcm;
+    }
+
+
+    
 }
