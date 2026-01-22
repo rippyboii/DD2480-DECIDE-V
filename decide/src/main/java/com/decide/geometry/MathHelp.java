@@ -29,7 +29,24 @@ public class MathHelp {
           + p2.x() * (p3.y() - p1.y())
           + p3.x() * (p1.y() - p2.y())
     );
-}
+    }
 
+    /**
+     * Calculates the smallest radius needed to enclose 3 points inside a circle.
+     * 
+     * Given 3 planar points, calculate the smallest radius of a circle which encloses all the points, i.e.
+     * the points are located inside or on the circle.
+     * If the 3 points are identical, then the radius is equal to 0.
+     * If the 3 points are collinear or form an obtuse triangle, the radius is equal to the half of the longest side.
+     * If the 3 points form an acute triangle, the radius is equal to the circumradius.
+     * 
+     * @param p1 the first point
+     * @param p2 the second point
+     * @param p3 the third point
+     * @return the smallest radius of enclosing circle
+     */
+    public static double calculateSmallestRadius(Point p1, Point p2, Point p3) {
+        return 0.0; // TODO: placeholder 
+    }
 }
 
