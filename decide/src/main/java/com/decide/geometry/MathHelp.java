@@ -77,6 +77,20 @@ public class MathHelp {
         return radius;
     }
 
+
+    /**
+     * Calculates the circumcenter of a triangle given by 3 points.
+     * 
+     * The method firstly checks if the points are collinear.
+     * Then, the equations for two perpendicular bisectors of the triangle are obtained, using the midpoints and vectors between vertices.
+     * The circumcenter must lie on both the lines, therefore it is given as the result of the cross product between the lines (in homogeneous coordinates).
+     * Finally, the point is converted to Cartesian coordinates.
+     * 
+     * @param p1 the first point
+     * @param p2 the second point
+     * @param p3 the third point
+     * @return the circumcenter of the triangle
+     */
     public static Point calculateCircumcenter(Point p1, Point p2, Point p3) {
         // check if the points are collinear or identical
         double[] v1 = {p1.x() - p2.x(), p1.y() - p1.y()};
@@ -102,7 +116,8 @@ public class MathHelp {
     }
 
     /**
-     * Calculates the cross product between 2 3D vectors.
+     * Calculates the cross product between 2 3D vectors.\
+     * 
      * @param a the first vector
      * @param b the second vector
      * @return the cross product
