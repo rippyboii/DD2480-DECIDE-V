@@ -90,6 +90,8 @@ public class MathHelp {
      * @param p2 the second point
      * @param p3 the third point
      * @return the circumcenter of the triangle
+     * 
+     * @throws IllegalArgumentException if the 3 points are collinear.
      */
     public static Point calculateCircumcenter(Point p1, Point p2, Point p3) {
         // check if the points are collinear or identical
@@ -121,6 +123,8 @@ public class MathHelp {
      * @param a the first vector
      * @param b the second vector
      * @return the cross product
+     * 
+     * @throws IllegalArgumentException if the vectors are not of size 3.
      */
     public static double[] calculateCrossProduct(double[] a, double[] b) {
         if (a.length != 3 || b.length != 3) {
