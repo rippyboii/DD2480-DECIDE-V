@@ -1,12 +1,13 @@
 package com.decide.LICs;
 
-import com.decide.model.Point;
-import com.decide.model.Parameters;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import com.decide.model.Parameters;
+import com.decide.model.Point;
 
-class Lic0Test {
+class LIC0Test {
 
     private static Parameters paramsWithLength1(double length1) {
         Parameters p = new Parameters();
@@ -28,8 +29,8 @@ class Lic0Test {
                 new Point(0.0, 0.0)
         };
         Parameters params = paramsWithLength1(0.0);
-
-        assertFalse(Lic0.evaluate(points, params));
+        LIC0 lic0 = new LIC0();
+        assertFalse(lic0.evaluate(points, params));
     }
 
     /**
@@ -49,8 +50,8 @@ class Lic0Test {
                 new Point(5.0, 0.0),
         };
         Parameters params = paramsWithLength1(3.0);
-
-        assertTrue(Lic0.evaluate(points, params));
+        LIC0 lic0 = new LIC0();
+        assertTrue(lic0.evaluate(points, params));
     }
 
     /**
@@ -71,8 +72,8 @@ class Lic0Test {
                 new Point(7.0, 0.0)
         };
         Parameters params = paramsWithLength1(5.0);
-
-        assertFalse(Lic0.evaluate(points, params));
+        LIC0 lic0 = new LIC0();
+        assertFalse(lic0.evaluate(points, params));
     }
 }
 

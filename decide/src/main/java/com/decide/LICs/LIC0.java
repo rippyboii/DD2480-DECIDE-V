@@ -1,8 +1,8 @@
 package com.decide.LICs;
 
 import com.decide.geometry.MathHelp;
-import com.decide.model.Point;
 import com.decide.model.Parameters;
+import com.decide.model.Point;
 
 /**
  * LIC0:
@@ -11,12 +11,13 @@ import com.decide.model.Parameters;
  *
  * Condition is NOT met if NUMPOINTS < 2.
  */
-public final class Lic0 {
+public final class LIC0 implements LIC {
 
-    private Lic0() {
+    public LIC0() {
     }
 
-    public static boolean evaluate(Point[] points, Parameters params) {
+    @Override
+    public boolean evaluate(Point[] points, Parameters params) {
         if (points == null || params == null) {
             throw new IllegalArgumentException("Either points are not passed or parameters are not passed.");
         }

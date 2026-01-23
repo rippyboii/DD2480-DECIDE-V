@@ -1,14 +1,15 @@
 package com.decide.LICs;
 
-import com.decide.geometry.AngleCheck;
+import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class Lic2 {
-    private Lic2() {
+public final class LIC3 implements LIC {
+    public LIC3() {
     }
 
-    public static boolean evaluate(Point[] points, Parameters params) {
+    @Override
+    public boolean evaluate(Point[] points, Parameters params) {
         if (points == null || params == null) {
             throw new IllegalArgumentException("Either points are not passed or parameters are not passed.");
         }
@@ -20,12 +21,12 @@ public final class Lic2 {
         }
 
         for (int i = 0; i < n - 2; i++) {
-            double angle = AngleCheck.angleRadians(points[i].x(), points[i].y(), points[i + 1].x(), points[i + 1].y(), points[i + 2].x(), points[i + 2].y());
-            if (angle > Math.PI + params.EPSILON || angle < Math.PI - params.EPSILON) {
+            double area = MathHelp.triangleArea(points[i], points[i + 1], points[i + 2]);
+            if (area > params.AREA1) {
                 return true;
             }
         }
 
         return false;
-    }
+    }    
 }

@@ -1,11 +1,12 @@
 package com.decide.LICs;
 
-import com.decide.model.Point;
-import com.decide.model.Parameters;
 import java.util.ArrayList;
 
-public class Lic4 {
-    private Lic4() {
+import com.decide.model.Parameters;
+import com.decide.model.Point;
+
+public final class LIC4 implements LIC {
+    public LIC4() {
     }
     // Determine the quadrant of a point facoring quadrants of lower values first
     private static int decideQuad(Point p){
@@ -22,8 +23,8 @@ public class Lic4 {
             return 4;
         }
     }
-
-    public static boolean evaluate(Point[] points, Parameters params) {
+    @Override
+    public boolean evaluate(Point[] points, Parameters params) {
 
         if (points == null || params == null) {
             throw new IllegalArgumentException("Either points are not passed or parameters are not passed.");
