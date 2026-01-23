@@ -7,11 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LIC6Test {
     
-    
+/**
+ * Contract:
+ * LIC6 should return false when the total number of points is less than N_PTS.
+ *
+ * Expected Behavior:
+ * Given only 2 points and N_PTS = 3, no valid set of N_PTS consecutive points
+ * can be formed. Therefore, LIC6 must evaluate to false.
+ */
     @Test
     public void testNotEnoughPoints() {
-
-    // Fewer points than N_PTS
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(1, 0)
@@ -23,10 +28,20 @@ public class LIC6Test {
         assertFalse(LIC6.evaluate(points, params));
     }
     
+
+/**
+ * Contract:
+ * LIC6 should return true if there exists a set of N_PTS consecutive points
+ * where at least one point lies at a distance greater than DIST from the line
+ * formed by the first and last points.
+ *
+ * Expected Behavior:
+ * For points (0,0), (2,3), (4,0), the point (2,3) lies 3 units away from the line
+ * y = 0. Since DIST = 2.0 and 3 > 2.0, LIC6 must return true.
+ */
+
     @Test
     public void testPointFarFromLine() {
-        // Line from (0,0) to (4,0), point at (2,3) is 3 units away
-
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(2, 3),
@@ -38,11 +53,20 @@ public class LIC6Test {
         
         assertTrue(LIC6.evaluate(points, params));
     }
+
+
+/**
+ * Contract:
+ * LIC6 should return false if all points in every set of N_PTS consecutive points
+ * lie at a distance less than or equal to DIST from the corresponding line.
+ *
+ * Expected Behavior:
+ * For points (0,0), (2,0.5), (4,0), the maximum distance from the line y = 0
+ * is 0.5. Since 0.5 ≤ DIST = 1.0, LIC6 must return false.
+ */
     
     @Test
     public void testPointCloseToLine() {
-
-        // Line from (0,0) to (4,0), point at (2,0.5) is 0.5 units away
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(2, 0.5),
@@ -54,11 +78,20 @@ public class LIC6Test {
         
         assertFalse(LIC6.evaluate(points, params));
     }
-    
+
+/**
+ * Contract:
+ * LIC6 should return false if all points in every set of N_PTS consecutive points
+ * lie at a distance less than or equal to DIST from the corresponding line.
+ *
+ * Expected Behavior:
+ * For points (0,0), (2,1), (4,0), the point (2,1) lies exactly 1.0 units away
+ * from the line y = 0. Since the condition requires distance > DIST,
+ * and 1.0 is not greater than DIST = 1.0, LIC6 must return false.
+ */ 
+
     @Test
     public void testExactlyAtThreshold() {
-
-        // Line from (0,0) to (4,0), point at (2,1) is 1 unit away
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(2, 1),
@@ -70,17 +103,26 @@ public class LIC6Test {
         
         assertFalse(LIC6.evaluate(points, params));
     }
+
+/**
+ * Contract:
+ * LIC6 should evaluate all possible sets of N_PTS consecutive points and return
+ * true if any one of those sets satisfies the distance condition.
+ *
+ * Expected Behavior:
+ * Among the consecutive groups of 4 points, there exists a set where the point
+ * (4,3) lies more than DIST = 2.0 units away from the line defined by the first
+ * and last points of that set. Therefore, LIC6 must return true.
+ */
     
     @Test
     public void testMultipleConsecutivePoints() {
-
-        // Should check multiple sets of N_PTS consecutive points
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(1, 0.1),
             new Point(2, 0),
             new Point(3, 0.1),
-            new Point(4, 3),  // This point is far from line (3,0.1) to (6,0)
+            new Point(4, 3),  
             new Point(5, 0.1),
             new Point(6, 0)
         };
@@ -91,9 +133,19 @@ public class LIC6Test {
         assertTrue(LIC6.evaluate(points, params));
     }
     
+
+/**
+ * Contract:
+ * If the first and last points of a set coincide, the distance calculation depends on the implementation of pointToLineDistance.
+ *
+ * Expected Behavior:
+ * Since the line defined by identical points (0,0) is undefined, the distance
+ * from (5,5) to (0,0) is used instead. That distance exceeds DIST = 1.0,
+ * so LIC6 must return true.
+ */
     @Test
     public void testCoincidentEndpoints() {
-        
+
         // When first and last points are the same, distance should be measured from that point
         Point[] points = new Point[]{
             new Point(0, 0),
