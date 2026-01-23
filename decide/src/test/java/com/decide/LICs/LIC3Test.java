@@ -1,13 +1,13 @@
 package com.decide.LICs;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class Lic3Test {
+public class LIC3Test {
     /**
      * Contract:
      * There exists at least one set of three consecutive data points that are the vertices of a triangle
@@ -27,7 +27,8 @@ public class Lic3Test {
             new Point(2.0, 0.0),
             new Point(2.0, 2.0)
         };
-        assertTrue(Lic3.evaluate(points, p));
+        LIC3 lic3 = new LIC3();
+        assertTrue(lic3.evaluate(points, p));
     }
         /**
      * Contract:
@@ -48,7 +49,8 @@ public class Lic3Test {
             new Point(1.0, 0.0),
             new Point(1.0, 1.0)
         };
-        assertFalse(Lic3.evaluate(points, p));
+        LIC3 lic3 = new LIC3();
+        assertFalse(lic3.evaluate(points, p));
     }
         /**
      * Contract:
@@ -69,6 +71,7 @@ public class Lic3Test {
             new Point(2.0, 0.0),
             new Point(2.0, 2.0)
         };
-        assertFalse(Lic3.evaluate(points, p));
+        LIC3 lic3 = new LIC3();
+        assertFalse(lic3.evaluate(points, p));
     }
 }

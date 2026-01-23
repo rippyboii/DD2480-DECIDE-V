@@ -13,7 +13,7 @@ import com.decide.model.Point;
  */
 public final class LIC0 implements LIC {
 
-    private LIC0() {
+    public LIC0() {
     }
 
     @Override

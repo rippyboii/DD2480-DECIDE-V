@@ -1,12 +1,13 @@
 package com.decide.LICs;
 
-import com.decide.model.Point;
-import com.decide.model.Parameters;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import com.decide.model.Parameters;
+import com.decide.model.Point;
 
-class Lic2Test {
+class LIC2Test {
     /**
      * Contract:
      * here exists at least one set of three consecutive data points which form an angle such that:
@@ -26,7 +27,8 @@ class Lic2Test {
             new Point(1.0, 0.0),
             new Point(1.0, 1.0)
         };
-        assertTrue(Lic2.evaluate(points, p));
+        LIC2 lic2 = new LIC2();
+        assertTrue(lic2.evaluate(points, p));
     }
         /**
      * Contract:
@@ -47,7 +49,8 @@ class Lic2Test {
             new Point(1.0, 0.0),
             new Point(0.0, 1.0)
         };
-        assertTrue(Lic2.evaluate(points, p));
+        LIC2 lic2 = new LIC2();
+        assertTrue(lic2.evaluate(points, p));
     }
         /**
      * Contract:
@@ -68,6 +71,8 @@ class Lic2Test {
             new Point(1.0, 0.0),
             new Point(1.0, 1.0)
         };
-        assertFalse(Lic2.evaluate(points, p));
+
+        LIC2 lic2 = new LIC2();
+        assertFalse(lic2.evaluate(points, p));
     }
 }

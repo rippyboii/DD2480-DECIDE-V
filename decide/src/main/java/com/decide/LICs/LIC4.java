@@ -6,7 +6,7 @@ import com.decide.model.Parameters;
 import com.decide.model.Point;
 
 public final class LIC4 implements LIC {
-    private LIC4() {
+    public LIC4() {
     }
     // Determine the quadrant of a point facoring quadrants of lower values first
     private static int decideQuad(Point p){

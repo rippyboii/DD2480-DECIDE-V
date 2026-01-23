@@ -1,13 +1,13 @@
 package com.decide.LICs;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class Lic4Test {
+public class LIC4Test {
     /**
      * Contract:
      * There exists at least one set of Q PTS consecutive data points that lie in more than QUADS
@@ -30,7 +30,8 @@ public class Lic4Test {
             new Point(0.0, 1.0),
             new Point(1.0, 0.0)
         };
-        assertTrue(Lic4.evaluate(points, p));
+        LIC4 lic4 = new LIC4();
+        assertTrue(lic4.evaluate(points, p));
     }
     /**
      * Contract:
@@ -54,7 +55,8 @@ public class Lic4Test {
             new Point(0.0, 1.0),
             new Point(1.0, 0.0)
         };
-        assertFalse(Lic4.evaluate(points, p));
+        LIC4 lic4 = new LIC4();
+        assertFalse(lic4.evaluate(points, p));
     }
     /**
      * Contract:
@@ -79,7 +81,8 @@ public class Lic4Test {
             new Point(0.0, 1.0)
 
         };
-        assertFalse(Lic4.evaluate(points, p));
+        LIC4 lic4 = new LIC4();
+        assertFalse(lic4.evaluate(points, p));
     }
     
 }

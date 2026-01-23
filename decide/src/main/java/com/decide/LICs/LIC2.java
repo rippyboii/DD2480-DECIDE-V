@@ -5,7 +5,7 @@ import com.decide.model.Parameters;
 import com.decide.model.Point;
 
 public final class LIC2 implements LIC {
-    private LIC2() {
+    public LIC2() {
     }
 
     @Override
