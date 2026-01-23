@@ -8,6 +8,9 @@ import com.decide.model.Parameters;
 public class LIC6 {
 
     public static boolean evaluate(Point[] points, Parameters params) {
+        if (points == null || params == null) {
+            throw new IllegalArgumentException("Either your points or parameters are null");
+        }
 
         int n = points.length;
         int N_PTS = params.N_PTS;
