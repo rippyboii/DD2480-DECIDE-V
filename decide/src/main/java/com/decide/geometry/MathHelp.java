@@ -137,5 +137,40 @@ public class MathHelp {
         return result;
     }
 
+
+
+/**
+ * Calculates the shortest (perpendicular) distance from a point P to the infinite line
+ * passing through points A and B.
+ * If A and B are identical, the line is undefined, so this returns distance(A, P).
+ * 
+ * Note: The area of a triangle is half of the determinant formed by the vectors AB and AP.
+ *
+ * @param a first point defining the line
+ * @param b second point defining the line
+ * @param p point whose distance to the line is computed
+ * @return perpendicular distance from p to line AB (or distance(a, p) if a == b)
+ * @throws IllegalArgumentException if any point is null
+ */
+public static double pointToLineDistance(Point a, Point b, Point p) {
+    if (a == null || b == null || p == null) {
+        throw new IllegalArgumentException("Points can not be null. Check your parameters!");
+    }
+
+    double dx = b.x() - a.x();
+    double dy = b.y() - a.y();
+
+    if (Math.hypot(dx, dy) == 0.0) {
+        return calculateDistance(a, p); 
+    }
+
+    double normal_cross = dx * (p.y() - a.y()) - dy * (p.x() - a.x());
+    return Math.abs(normal_cross) / (Math.hypot(dx, dy));
+
+
+
 }
 
+
+
+}
