@@ -243,11 +243,21 @@ void LineisUndefined() {
 }
 
 
+/**
+ * Contract:
+ * The angleRadians function should correctly calculate the angle at vertex B formed by
+ * three points A, B, and C, measured in radians. The angle is computed between vectors
+ * BA and BC (from B to A and from B to C).
+ *
+ * Expected Behavior:
+ * Given points A(1,0), B(0,0), and C(0,1), the angle at vertex B is 90 degrees (π/2 radians).
+ * Vector BA points along the positive x-axis, and vector BC points along the positive y-axis,
+ * forming a right angle. The function should return π/2 ≈ 1.5708 radians.
+ */
 @Test
     void testAngle() {
-        // A(1,0), B(0,0), C(0,1) -> 90 degrees at B
         double angle = MathHelp.angleRadians(1, 0, 0, 0, 0, 1);
-        assertEquals(Math.PI / 2.0, angle, 1e-12);  // π/2, not π
+        assertEquals(Math.PI / 2.0, angle, 1e-12); 
         System.out.println("Angle ABC: " + angle);
     }
 
