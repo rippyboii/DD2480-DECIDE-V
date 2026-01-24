@@ -1,6 +1,6 @@
 package com.decide.LICs;
 
-import com.decide.geometry.AngleCheck;
+import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
@@ -21,7 +21,7 @@ public final class LIC2 implements LIC {
         }
 
         for (int i = 0; i < n - 2; i++) {
-            double angle = AngleCheck.angleRadians(points[i].x(), points[i].y(), points[i + 1].x(), points[i + 1].y(), points[i + 2].x(), points[i + 2].y());
+            double angle = MathHelp.angleRadians(points[i].x(), points[i].y(), points[i + 1].x(), points[i + 1].y(), points[i + 2].x(), points[i + 2].y());
             if (angle > Math.PI + params.EPSILON || angle < Math.PI - params.EPSILON) {
                 return true;
             }
