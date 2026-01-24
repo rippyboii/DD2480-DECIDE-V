@@ -200,4 +200,46 @@ public class MathHelpTest {
         assertEquals(result[1], 0.96,  0.00001);
         assertEquals(result[2], -0.84, 0.00001);
     }
+
+
+/**
+ * Contract:
+ * The pointToLineDistance function should correctly calculate the shortest (perpendicular) distance
+ * from a point P to the infinite line passing through points A and B.
+ *
+ * Expected Behavior:
+ * for A = (0, 0) and B = (4, 0), the line AB is the x-axis (y = 0).
+ * for P = (1, 3), the perpendicular distance to the x-axis should be 3.
+ */
+@Test
+void pTLValidDistanceReturn() {
+    Point a = new Point(0.0, 0.0);
+    Point b = new Point(4.0, 0.0);
+    Point p = new Point(1.0, 3.0);
+
+    double result = MathHelp.pointToLineDistance(a, b, p);
+
+    assertEquals(3.0, result, 1e-9);
+}
+
+/**
+ * Contract:
+ * If points A and B are identical, pointToLineDistance should fall back to the normal
+ * distance between A and P.
+ *
+ * Expected Behavior:
+ * Given A = B = (2, 2) and P = (5, 6),
+ * distance(A, P) = sqrt((5-2)^2 + (6-2)^2) = 5.
+ */
+@Test
+void LineisUndefined() {
+    Point a = new Point(2.0, 2.0);
+    Point b = new Point(2.0, 2.0); 
+    Point p = new Point(5.0, 6.0);
+
+    double result = MathHelp.pointToLineDistance(a, b, p);
+
+    assertEquals(5.0, result, 1e-9);
+}
+
 }
