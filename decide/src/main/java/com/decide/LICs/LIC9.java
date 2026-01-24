@@ -1,6 +1,6 @@
 package com.decide.LICs;
 
-import com.decide.geometry.AngleCheck;
+import com.decide.geometry.MathHelp;
 import com.decide.model.Point;
 import com.decide.model.Parameters;
 
@@ -38,7 +38,7 @@ public class LIC9 implements LIC {
 
             // Calculate the angle at point B formed by points A and C
             try {
-                angle = AngleCheck.angleRadians(
+                angle = MathHelp.angleRadians(
                     a.x(), a.y(),
                     b.x(), b.y(),
                     c.x(), c.y()
