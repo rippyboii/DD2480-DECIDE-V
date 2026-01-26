@@ -22,9 +22,6 @@ public final class Lic10 implements Lic {
         if (nPoints < 5){ // We need at least 5 points
             return false;
         }
-        if (params.getE_PTS() < 1 || params.getF_PTS() < 1) {
-            return false;
-            }
 
         if (params.getE_PTS() + params.getF_PTS() > nPoints - 3) {
             return false;
