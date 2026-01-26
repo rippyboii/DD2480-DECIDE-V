@@ -4,8 +4,8 @@ import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic10 implements lic {
-    public lic10() {
+public final class Lic10 implements Lic {
+    public Lic10() {
     }
      /**
      * Checks condition for LIC10.

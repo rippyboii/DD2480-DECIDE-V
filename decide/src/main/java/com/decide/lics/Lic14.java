@@ -4,7 +4,7 @@ import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic14 implements lic {
+public final class Lic14 implements Lic {
     @Override
     public boolean evaluate(Point[] points, Parameters params) {
         int n = points.length;

@@ -5,7 +5,7 @@ import com.decide.model.Point;
 import com.decide.model.Parameters;
 
 
-public class lic6 {
+public class Lic6 {
 
     public static boolean evaluate(Point[] points, Parameters params) {
         if (points == null || params == null) {

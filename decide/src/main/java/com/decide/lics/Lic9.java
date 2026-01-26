@@ -4,7 +4,7 @@ import com.decide.geometry.MathHelp;
 import com.decide.model.Point;
 import com.decide.model.Parameters;
 
-public final class lic9 implements lic {
+public final class Lic9 implements Lic {
 
 
     @Override

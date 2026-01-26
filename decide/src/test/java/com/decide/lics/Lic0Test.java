@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic0Test {
+public class Lic0Test {
 
     private static Parameters paramsWithLength1(double length1) {
         Parameters p = new Parameters();
@@ -17,7 +17,7 @@ public class lic0Test {
 
     /**
      * Contract:
-     * LIC0 requires at least 2 points to evaluate. With fewer than 2 points,
+     * Lic0 requires at least 2 points to evaluate. With fewer than 2 points,
      * the condition cannot be met.
      *
      * Expected Behavior:
@@ -29,13 +29,13 @@ public class lic0Test {
                 new Point(0.0, 0.0)
         };
         Parameters params = paramsWithLength1(0.0);
-        lic0 lic0 = new lic0();
-        assertFalse(lic0.evaluate(points, params));
+        Lic0 Lic0 = new Lic0();
+        assertFalse(Lic0.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic0 evaluates to true if at least one pair of consecutive points
+     * Lic0 evaluates to true if at least one pair of consecutive points
      * has a distance strictly greater than LENGTH1.
      * Distance between (0,0) and (5,0) is 5
      *
@@ -50,13 +50,13 @@ public class lic0Test {
                 new Point(5.0, 0.0),
         };
         Parameters params = paramsWithLength1(3.0);
-        lic0 lic0 = new lic0();
-        assertTrue(lic0.evaluate(points, params));
+        Lic0 Lic0 = new Lic0();
+        assertTrue(Lic0.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic0 evaluates to false if no consecutive pair of points has a distance
+     * Lic0 evaluates to false if no consecutive pair of points has a distance
      * strictly greater than LENGTH1.
      * Consecutive distances given are 3 and 4, but LENGTH1 is 5 so neither is > 5
      *
@@ -72,8 +72,8 @@ public class lic0Test {
                 new Point(7.0, 0.0)
         };
         Parameters params = paramsWithLength1(5.0);
-        lic0 lic0 = new lic0();
-        assertFalse(lic0.evaluate(points, params));
+        Lic0 Lic0 = new Lic0();
+        assertFalse(Lic0.evaluate(points, params));
     }
 }
 

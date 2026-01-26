@@ -4,8 +4,16 @@ import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic3 implements lic {
-    public lic3() {
+/**
+ * lic0:
+ * There exists at least one set of two consecutive data points
+ * that are a distance greater than LENGTH1 apart.
+ *
+ * Condition is NOT met if NUMPOINTS < 2.
+ */
+public final class Lic0 implements Lic {
+
+    public Lic0() {
     }
 
     @Override
@@ -20,13 +28,13 @@ public final class lic3 implements lic {
             return false; // Condition is NOT met if there are fewer than 2 points
         }
 
-        for (int i = 0; i < n - 2; i++) {
-            double area = MathHelp.triangleArea(points[i], points[i + 1], points[i + 2]);
-            if (area > params.AREA1) {
+        for (int i = 0; i < n - 1; i++) {
+            double d = MathHelp.calculateDistance(points[i], points[i + 1]);
+            if (d > params.LENGTH1) {
                 return true;
             }
         }
 
         return false;
-    }    
+    }
 }

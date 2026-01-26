@@ -7,29 +7,29 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic1Test {
+public class Lic1Test {
 
     /**
      * Contract:
-     * lic1 should return false when the number of points is < 3, as the condition cannot be met.
+     * Lic1 should return false when the number of points is < 3, as the condition cannot be met.
      *
      * Expected Behavior:
      * The function shall return false when the number of points supplied is 2.
     */
     @Test
     void returnsFalseWhenFewerThanThreePoints() {
-        lic1 lic1 = new lic1();
+        Lic1 Lic1 = new Lic1();
         Point[] points = {new Point(0, 1),
                         new Point(0, 2)
         };
         Parameters params = new Parameters();
         params.RADIUS1 = 1;
-        assertFalse(lic1.evaluate(points, params));
+        assertFalse(Lic1.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic1 should return true if there is a set of 3 consecutive points, which cannot be contained in
+     * Lic1 should return true if there is a set of 3 consecutive points, which cannot be contained in
      * or on a circle of RADIUS1.
      * 
      * Expected behavior
@@ -38,7 +38,7 @@ public class lic1Test {
      */
     @Test
     void returnsTrueWhenPointsForAcuteTriangleWhichCannotBeContained(){
-        lic1 lic1 = new lic1();
+        Lic1 Lic1 = new Lic1();
         Point[] points = {new Point(-3, 6),
                         new Point(-4, -3),
                         new Point(-1, 2),
@@ -47,13 +47,13 @@ public class lic1Test {
         };
         Parameters params = new Parameters();
         params.RADIUS1 = 5;
-        assertTrue(lic1.evaluate(points, params));
+        assertTrue(Lic1.evaluate(points, params));
     }
 
 
     /**
      * Contract:
-     * lic1 should return true if there is a set of 3 consecutive points, which cannot be contained in
+     * Lic1 should return true if there is a set of 3 consecutive points, which cannot be contained in
      * or on a circle of RADIUS1.
      * 
      * Expected behavior
@@ -62,7 +62,7 @@ public class lic1Test {
      */
     @Test
     void returnsTrueWhenPointsForObtuseTriangleWhichCannotBeContained(){
-        lic1 lic1 = new lic1();
+        Lic1 Lic1 = new Lic1();
         Point[] points = {new Point(1.5, 1),
                         new Point(-1, -2),
                         new Point(1, 3),
@@ -71,12 +71,12 @@ public class lic1Test {
         };
         Parameters params = new Parameters();
         params.RADIUS1 = 3;
-        assertTrue(lic1.evaluate(points, params));
+        assertTrue(Lic1.evaluate(points, params));
     }
 
      /**
      * Contract:
-     * lic1 should return false if there is not a set of 3 consecutive points, which cannot be contained in
+     * Lic1 should return false if there is not a set of 3 consecutive points, which cannot be contained in
      * or on a circle of RADIUS1.
      * 
      * Expected behavior
@@ -85,7 +85,7 @@ public class lic1Test {
      */
     @Test
     void returnFalseWhenAllPointsCanBeContained(){
-        lic1 lic1 = new lic1();
+        Lic1 Lic1 = new Lic1();
         Point[] points = {new Point(0, 0),
                         new Point(0, 1),
                         new Point(1, 0),
@@ -94,11 +94,11 @@ public class lic1Test {
         };
         Parameters params = new Parameters();
         params.RADIUS1 = Math.sqrt(2)/2;
-        assertFalse(lic1.evaluate(points, params));
+        assertFalse(Lic1.evaluate(points, params));
     }
      /**
      * Contract:
-     * lic1 should return false if there is not a set of 3 consecutive points, which cannot be contained in
+     * Lic1 should return false if there is not a set of 3 consecutive points, which cannot be contained in
      * or on a circle of RADIUS1.
      * 
      * Expected behavior
@@ -107,7 +107,7 @@ public class lic1Test {
      */
     @Test
     void returnsTrueWhenCollinearPointsCannotBeContained() {
-        lic1 lic1 = new lic1();
+        Lic1 Lic1 = new Lic1();
         Point[] points = {new Point(0.5, 0.5),
                         new Point(0, 0),
                         new Point(0.7, 0),
@@ -115,7 +115,7 @@ public class lic1Test {
         };
         Parameters params = new Parameters();
         params.RADIUS1 = 0.5;
-        assertTrue(lic1.evaluate(points, params));
+        assertTrue(Lic1.evaluate(points, params));
     }
 }
 

@@ -4,8 +4,8 @@ import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic2 implements lic {
-    public lic2() {
+public final class Lic2 implements Lic {
+    public Lic2() {
     }
 
     @Override

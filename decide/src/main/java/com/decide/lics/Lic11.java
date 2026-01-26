@@ -4,7 +4,7 @@ import com.decide.model.Point;
 import com.decide.model.Parameters;
 
 
-public class lic11 {
+public class Lic11 {
 
     public static boolean evaluate(Point[] points, Parameters params) {
 

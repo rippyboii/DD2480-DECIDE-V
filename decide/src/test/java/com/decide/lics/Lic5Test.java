@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic5Test {
+public class Lic5Test {
 
     private static final Parameters params = new Parameters();
 
@@ -17,11 +17,11 @@ public class lic5Test {
      * data points (X[i], Y[i]) and (X[i+1], Y[i+1]), such that X[i+1] - X[i] < 0.
      * 
      * Expected behavior:
-     * When one consecutive pair of points has X[i+1] < X[i], lic5 returns TRUE.
+     * When one consecutive pair of points has X[i+1] < X[i], Lic5 returns TRUE.
      */
     @Test
-    void testlic5TrueWithOneConsecutiveDecreasingPair() {
-        lic5 lic5 = new lic5();
+    void testLic5TrueWithOneConsecutiveDecreasingPair() {
+        Lic5 Lic5 = new Lic5();
         
         Point[] points = {
             new Point(1.0, 2.0),
@@ -31,7 +31,7 @@ public class lic5Test {
         };
 
         // Assert
-        assertTrue(lic5.evaluate(points, params));
+        assertTrue(Lic5.evaluate(points, params));
     }
 
     /**
@@ -40,11 +40,11 @@ public class lic5Test {
      * data points (X[i], Y[i]) and (X[i+1], Y[i+1]), such that X[i+1] - X[i] < 0.
      * 
      * Expected behavior:
-     * When multiple pairs of points have decreasing X-values, lic5 returns TRUE.
+     * When multiple pairs of points have decreasing X-values, Lic5 returns TRUE.
      */
     @Test
-    void testlic5TrueWithMultipleDecreasingPairs() {
-        lic5 lic5 = new lic5();
+    void testLic5TrueWithMultipleDecreasingPairs() {
+        Lic5 Lic5 = new Lic5();
         
         Point[] points = {
             new Point(2.0, 2.0),
@@ -55,7 +55,7 @@ public class lic5Test {
         };
 
         // Assert
-        assertTrue(lic5.evaluate(points, params));
+        assertTrue(Lic5.evaluate(points, params));
     }
 
     /**
@@ -64,11 +64,11 @@ public class lic5Test {
      * data points (X[i], Y[i]) and (X[i+1], Y[i+1]), such that X[i+1] - X[i] < 0.
      * 
      * Expected behavior:
-     * When no consecutive pair of points has X[i+1] < X[i], lic5 returns FALSE.
+     * When no consecutive pair of points has X[i+1] < X[i], Lic5 returns FALSE.
      */
     @Test
-    void testlic5FalseWithNoConsecutiveDecreasingPairs() {
-        lic5 lic5 = new lic5();
+    void testLic5FalseWithNoConsecutiveDecreasingPairs() {
+        Lic5 Lic5 = new Lic5();
         
         Point[] points = {
             new Point(1.0, 2.0),
@@ -78,7 +78,7 @@ public class lic5Test {
         };
 
         // Assert
-        assertFalse(lic5.evaluate(points, params));
+        assertFalse(Lic5.evaluate(points, params));
     }
 
 
@@ -87,11 +87,11 @@ public class lic5Test {
      * LIC 5 shall require a strict decrease in X-values.
      * 
      * Expected behavior:
-     * When X[i+1] == X[i] for all consecutive pairs, lic5 returns FALSE.
+     * When X[i+1] == X[i] for all consecutive pairs, Lic5 returns FALSE.
      */
     @Test
-    void testlic5FalseWithEqualXValues() {
-        lic5 lic5 = new lic5();
+    void testLic5FalseWithEqualXValues() {
+        Lic5 Lic5 = new Lic5();
 
         Point[] points = {
             new Point(1.0, 2.0),
@@ -101,7 +101,7 @@ public class lic5Test {
         };
 
         // Assert
-        assertFalse(lic5.evaluate(points, params));
+        assertFalse(Lic5.evaluate(points, params));
     }
 
     /**
@@ -109,17 +109,17 @@ public class lic5Test {
      * LIC 5 shall return FALSE when there are insufficient points.
      * 
      * Expected behavior:
-     * When there is only one point, lic5 returns FALSE.
+     * When there is only one point, Lic5 returns FALSE.
      */
     @Test
-    void testlic5FalseWithSinglePoint() {
-        lic5 lic5 = new lic5();
+    void testLic5FalseWithSinglePoint() {
+        Lic5 Lic5 = new Lic5();
 
         Point[] points = {
             new Point(1.0, 2.0)
         };
 
         // Assert
-        assertFalse(lic5.evaluate(points, params));
+        assertFalse(Lic5.evaluate(points, params));
     }
 }

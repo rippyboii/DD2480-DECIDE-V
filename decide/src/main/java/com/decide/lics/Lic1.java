@@ -3,8 +3,8 @@ package com.decide.lics;
 import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;;
-public final class lic1 implements lic {
-    public lic1() {
+public final class Lic1 implements Lic {
+    public Lic1() {
     }
 
     /**

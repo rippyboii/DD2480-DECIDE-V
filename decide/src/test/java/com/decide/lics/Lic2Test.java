@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic2Test {
+public class Lic2Test {
     /**
      * Contract:
      * here exists at least one set of three consecutive data points which form an angle such that:
@@ -27,8 +27,8 @@ public class lic2Test {
             new Point(1.0, 0.0),
             new Point(1.0, 1.0)
         };
-        lic2 lic2 = new lic2();
-        assertTrue(lic2.evaluate(points, p));
+        Lic2 Lic2 = new Lic2();
+        assertTrue(Lic2.evaluate(points, p));
     }
         /**
      * Contract:
@@ -49,8 +49,8 @@ public class lic2Test {
             new Point(1.0, 0.0),
             new Point(0.0, 1.0)
         };
-        lic2 lic2 = new lic2();
-        assertTrue(lic2.evaluate(points, p));
+        Lic2 Lic2 = new Lic2();
+        assertTrue(Lic2.evaluate(points, p));
     }
         /**
      * Contract:
@@ -72,7 +72,7 @@ public class lic2Test {
             new Point(1.0, 1.0)
         };
 
-        lic2 lic2 = new lic2();
-        assertFalse(lic2.evaluate(points, p));
+        Lic2 Lic2 = new Lic2();
+        assertFalse(Lic2.evaluate(points, p));
     }
 }

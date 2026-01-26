@@ -3,7 +3,7 @@ package com.decide.lics;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public interface lic {
+public interface Lic {
     /**
      * Evaluates the specific LIC condition.
      * @param points

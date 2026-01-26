@@ -9,9 +9,9 @@ import com.decide.model.Point;
  * There exists at least one set of two data points separated by exactly K PTS consecutive 
  * intervening points that are a distance greater than the length, LENGTH1, apart.
  */
-public final class lic7 implements lic {
+public final class Lic7 implements Lic {
 
-    public lic7() {
+    public Lic7() {
     }
 
     @Override

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic4Test {
+public class Lic4Test {
     /**
      * Contract:
      * There exists at least one set of Q PTS consecutive data points that lie in more than QUADS
@@ -30,8 +30,8 @@ public class lic4Test {
             new Point(0.0, 1.0),
             new Point(1.0, 0.0)
         };
-        lic4 lic4 = new lic4();
-        assertTrue(lic4.evaluate(points, p));
+        Lic4 Lic4 = new Lic4();
+        assertTrue(Lic4.evaluate(points, p));
     }
     /**
      * Contract:
@@ -55,8 +55,8 @@ public class lic4Test {
             new Point(0.0, 1.0),
             new Point(1.0, 0.0)
         };
-        lic4 lic4 = new lic4();
-        assertFalse(lic4.evaluate(points, p));
+        Lic4 Lic4 = new Lic4();
+        assertFalse(Lic4.evaluate(points, p));
     }
     /**
      * Contract:
@@ -81,8 +81,8 @@ public class lic4Test {
             new Point(0.0, 1.0)
 
         };
-        lic4 lic4 = new lic4();
-        assertFalse(lic4.evaluate(points, p));
+        Lic4 Lic4 = new Lic4();
+        assertFalse(Lic4.evaluate(points, p));
     }
     
 }

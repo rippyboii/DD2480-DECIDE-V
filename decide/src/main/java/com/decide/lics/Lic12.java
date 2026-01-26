@@ -4,8 +4,8 @@ import com.decide.geometry.MathHelp;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic12 implements lic {
-    public lic12() {
+public final class Lic12 implements Lic {
+    public Lic12() {
     }
     /**
      * Checks condition for LIC 12

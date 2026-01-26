@@ -7,14 +7,14 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic9Test {
+public class Lic9Test {
 
     private static final int MIN_VALID_C_PTS = 1;
     private static final int MIN_VALID_D_PTS = 1;
     
     /**
      * Contract:
-     * lic9 shall return false when NUMPOINTS < 5 since no valid
+     * Lic9 shall return false when NUMPOINTS < 5 since no valid
      * triple separated by C_PTS and D_PTS can exist.
      * 
      * Expected Behavior:
@@ -35,7 +35,7 @@ public class lic9Test {
         params.D_PTS = MIN_VALID_D_PTS;
 
         // Assert
-        assertFalse(new lic9().evaluate(fourPoints, params));
+        assertFalse(new Lic9().evaluate(fourPoints, params));
     }
 
 
@@ -68,7 +68,7 @@ public class lic9Test {
         params.EPSILON = 0.1; // Small epsilon
 
         // Assert
-        assertTrue(new lic9().evaluate(points, params));
+        assertTrue(new Lic9().evaluate(points, params));
     }
 
     /**
@@ -97,7 +97,7 @@ public class lic9Test {
         params.EPSILON = 0.1; // Small epsilon
 
         // Assert
-        assertFalse(new lic9().evaluate(points, params));
+        assertFalse(new Lic9().evaluate(points, params));
     }
 
 
@@ -127,7 +127,7 @@ public class lic9Test {
         params.EPSILON = 0.1; // Small epsilon
 
         // Assert
-        assertFalse(new lic9().evaluate(points, params));
+        assertFalse(new Lic9().evaluate(points, params));
     }
 
     /**
@@ -156,7 +156,7 @@ public class lic9Test {
         params.EPSILON = 0.1; // Small epsilon
 
         // Assert
-        assertFalse(new lic9().evaluate(points, params));
+        assertFalse(new Lic9().evaluate(points, params));
     }
 }
 

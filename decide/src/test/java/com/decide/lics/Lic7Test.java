@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic7Test {
+public class Lic7Test {
     /**
      * Contract:
      * There exists at least one set of two data points separated by exactly K PTS consecutive 
@@ -31,8 +31,8 @@ public class lic7Test {
             new Point(0.0, 0.0),
             new Point(1.0, 0.0)
         };
-        lic7 lic7 = new lic7();
-        assertTrue(lic7.evaluate(points, p));
+        Lic7 Lic7 = new Lic7();
+        assertTrue(Lic7.evaluate(points, p));
     }
 
     /**
@@ -58,8 +58,8 @@ public class lic7Test {
             new Point(0.0, 3.0),
             new Point(1.0, 0.0)
         };
-        lic7 lic7 = new lic7();
-        assertFalse(lic7.evaluate(points, p));
+        Lic7 Lic7 = new Lic7();
+        assertFalse(Lic7.evaluate(points, p));
     }
 
     /**
@@ -85,8 +85,8 @@ public class lic7Test {
             new Point(0.0, 3.0),
             new Point(1.0, 0.0)
         };
-        lic7 lic7 = new lic7();
-        assertFalse(lic7.evaluate(points, p));
+        Lic7 Lic7 = new Lic7();
+        assertFalse(Lic7.evaluate(points, p));
     }
     
 }

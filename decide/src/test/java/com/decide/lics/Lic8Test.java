@@ -7,18 +7,18 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic8Test {
+public class Lic8Test {
 
     /**
      * Contract:
-     * lic8 should return false when the number of points is < 5, as the condition cannot be met.
+     * Lic8 should return false when the number of points is < 5, as the condition cannot be met.
      *
      * Expected Behavior:
      * The function shall return false when the number of points supplied is 4.
     */
     @Test
     void returnsFalseWhenFewerThanFivePoints() {
-        lic8 lic8 = new lic8();
+        Lic8 Lic8 = new Lic8();
         Point[] points = {new Point(0, 1),
                         new Point(0, 2),
                         new Point(0, 3),
@@ -28,12 +28,12 @@ public class lic8Test {
         params.RADIUS1 = 1;
         params.A_PTS = 1;
         params.B_PTS = 1;
-        assertFalse(lic8.evaluate(points, params));
+        assertFalse(Lic8.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic8 should return true if there exists a set of three datapoints,
+     * Lic8 should return true if there exists a set of three datapoints,
      * separated by A_PTS and B_PTS intermediate points, which cannot be
      * contained within or on a circle of radius RADIUS1.
      *
@@ -44,7 +44,7 @@ public class lic8Test {
      */
     @Test
     void returnsTrueWhenPointsCannotBeContained() {
-        lic8 lic8 = new lic8();
+        Lic8 Lic8 = new Lic8();
         Point[] points = {new Point(0, 0), // p1
                         new Point(0, 2), // between
                         new Point(0, 10), // p2
@@ -55,11 +55,11 @@ public class lic8Test {
         params.RADIUS1 = 4;
         params.A_PTS = 1;
         params.B_PTS = 1;
-        assertTrue(lic8.evaluate(points, params));
+        assertTrue(Lic8.evaluate(points, params));
     }
      /**
      * Contract:
-     * lic8 should return false if all sets of three datapoints separated by
+     * Lic8 should return false if all sets of three datapoints separated by
       * A_PTS and B_PTS intermediate points can be contained within or on a
      * circle of radius RADIUS1.
      *
@@ -70,7 +70,7 @@ public class lic8Test {
      */
     @Test
     void returnsFalseWhenSeparatedPointsCanBeContained() {
-        lic8 lic8 = new lic8();
+        Lic8 Lic8 = new Lic8();
         Point[] points = {
             new Point(0, 0),   // p1
             new Point(0.5, 0), // between
@@ -83,7 +83,7 @@ public class lic8Test {
         params.B_PTS = 1;
         params.RADIUS1 = 1;
 
-        assertFalse(lic8.evaluate(points, params));
+        assertFalse(Lic8.evaluate(points, params));
 }
 
     }  

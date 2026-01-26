@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic14Test {
+public class Lic14Test {
 
     private static final int MIN_VALID_E_PTS = 1;
     private static final int MIN_VALID_F_PTS = 1;
@@ -37,7 +37,7 @@ public class lic14Test {
         params.AREA2 = 0.0;
 
         // Assert
-        assertFalse(new lic14().evaluate(fourPoints, params));
+        assertFalse(new Lic14().evaluate(fourPoints, params));
     }
 
 
@@ -70,7 +70,7 @@ public class lic14Test {
         params.AREA2 = 0.75; // No area less than 0.75 exists
 
         // Assert
-        assertFalse(new lic14().evaluate(area_1_triangle, params));
+        assertFalse(new Lic14().evaluate(area_1_triangle, params));
     }
 
 
@@ -103,7 +103,7 @@ public class lic14Test {
         params.AREA2 = 1.5; // Area less than 1.5 exists
 
         // Assert
-        assertFalse(new lic14().evaluate(area_1_triangle, params));
+        assertFalse(new Lic14().evaluate(area_1_triangle, params));
     }
 
 
@@ -136,7 +136,7 @@ public class lic14Test {
         params.AREA2 = 1.5; // Area less than 1.5 exists
 
         // Assert
-        assertTrue(new lic14().evaluate(area_1_triangle, params));
+        assertTrue(new Lic14().evaluate(area_1_triangle, params));
     }
 
 
@@ -167,6 +167,6 @@ public class lic14Test {
         params.AREA2 = 1.5;
 
         // Assert
-        assertFalse(new lic14().evaluate(points, params));
+        assertFalse(new Lic14().evaluate(points, params));
     }
 }

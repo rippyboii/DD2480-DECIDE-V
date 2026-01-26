@@ -3,9 +3,9 @@ package com.decide.lics;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic5 implements lic {
+public final class Lic5 implements Lic {
 
-    public lic5() {}
+    public Lic5() {}
 
     @Override
     public boolean evaluate(Point[] points, Parameters params) {

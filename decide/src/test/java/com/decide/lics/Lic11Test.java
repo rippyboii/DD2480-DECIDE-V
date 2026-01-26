@@ -5,14 +5,14 @@ import com.decide.model.Parameters;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class lic11Test {
+public class Lic11Test {
 
 /**
  * Contract:
- * lic11 should return false when NUMPOINTS < 3.
+ * Lic11 should return false when NUMPOINTS < 3.
  *
  * Expected Behavior:
- * Given only 2 points, the condition cannot be met. Therefore, lic11 must return false.
+ * Given only 2 points, the condition cannot be met. Therefore, Lic11 must return false.
  */
     @Test
     public void testNotEnoughPoints() {
@@ -23,18 +23,18 @@ public class lic11Test {
         Parameters params = new Parameters();
         params.G_PTS = 1;
 
-        assertFalse(lic11.evaluate(points, params));
+        assertFalse(Lic11.evaluate(points, params));
     }
 
 
 
 /**
  * Contract:
- * lic11 should return false if X[j] - X[i] >= 0 for all valid pairs.
+ * Lic11 should return false if X[j] - X[i] >= 0 for all valid pairs.
  *
  * Expected Behavior:
  * For points with non-decreasing x-coordinates, no pair satisfies X[j] - X[i] < 0.
- * Therefore, lic11 must return false.
+ * Therefore, Lic11 must return false.
  */
     @Test
     public void testConditionNotMet() {
@@ -47,16 +47,16 @@ public class lic11Test {
         Parameters params = new Parameters();
         params.G_PTS = 1;
 
-        assertFalse(lic11.evaluate(points, params));
+        assertFalse(Lic11.evaluate(points, params));
     }
 
 /**
  * Contract:
- * lic11 should return false when X[j] - X[i] = 0, since 0 is not less than 0.
+ * Lic11 should return false when X[j] - X[i] = 0, since 0 is not less than 0.
  *
  * Expected Behavior:
  * For points (5,0), (3,1), (5,2) with G_PTS = 1, X[2] - X[0] = 5 - 5 = 0.
- * Since 0 is not < 0, lic11 must return false.
+ * Since 0 is not < 0, Lic11 must return false.
  */
     @Test
     public void testEqualXCoordinates() {
@@ -68,16 +68,16 @@ public class lic11Test {
         Parameters params = new Parameters();
         params.G_PTS = 1;
 
-        assertFalse(lic11.evaluate(points, params));
+        assertFalse(Lic11.evaluate(points, params));
     }
 
 /**
  * Contract:
- * lic11 should correctly handle larger G_PTS values.
+ * Lic11 should correctly handle larger G_PTS values.
  *
  * Expected Behavior:
  * For points (10,0), (5,1), (6,2), (3,3) with G_PTS = 2, X[3] - X[0] = 3 - 10 = -7 < 0.
- * Therefore, lic11 must return true.
+ * Therefore, Lic11 must return true.
  */
     @Test
     public void testWithLargerGPts() {
@@ -90,6 +90,6 @@ public class lic11Test {
         Parameters params = new Parameters();
         params.G_PTS = 2;
 
-        assertTrue(lic11.evaluate(points, params));
+        assertTrue(Lic11.evaluate(points, params));
     }
 }

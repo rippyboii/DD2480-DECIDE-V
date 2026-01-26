@@ -8,18 +8,18 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic10Test {
+public class Lic10Test {
 
     /**
      * Contract:
-     * lic10 should return false when the number of points is < 5, as the condition cannot be met.
+     * Lic10 should return false when the number of points is < 5, as the condition cannot be met.
      *
      * Expected Behavior:
      * The function shall return false when the number of points supplied is 4.
      */
     @Test
     void returnsFalseWhenFewerThanFivePoints() {
-        lic10 lic10 = new lic10();
+        Lic10 Lic10 = new Lic10();
 
         Point[] points = {
             new Point(0, 1),
@@ -33,12 +33,12 @@ public class lic10Test {
         params.F_PTS = 1;
         params.AREA1 = 1;
 
-        assertFalse(lic10.evaluate(points, params));
+        assertFalse(Lic10.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic10 should return true if there exists at least one set of three datapoints separated by
+     * Lic10 should return true if there exists at least one set of three datapoints separated by
      * exactly E_PTS and F_PTS consecutive intervening points that are the vertices of a triangle
      * with area greater than AREA1.
      *
@@ -48,7 +48,7 @@ public class lic10Test {
      */
     @Test
     void returnsTrueWhenSeparatedPointsFormTriangleWithAreaGreaterThanAREA1() {
-        lic10 lic10 = new lic10();
+        Lic10 Lic10 = new Lic10();
 
         /*
          * E_PTS = 1, F_PTS = 1
@@ -68,12 +68,12 @@ public class lic10Test {
         params.F_PTS = 1;
         params.AREA1 = 40;
 
-        assertTrue(lic10.evaluate(points, params));
+        assertTrue(Lic10.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic10 should return false if all sets of three datapoints separated by exactly E_PTS and
+     * Lic10 should return false if all sets of three datapoints separated by exactly E_PTS and
      * F_PTS consecutive intervening points form triangles with area less than or equal to AREA1.
      *
      * Expected Behavior:
@@ -82,7 +82,7 @@ public class lic10Test {
      */
     @Test
     void returnsFalseWhenSeparatedPointsDoNotExceedAREA1() {
-        lic10 lic10 = new lic10();
+        Lic10 Lic10 = new Lic10();
 
         /*
          * E_PTS = 1, F_PTS = 1
@@ -102,19 +102,19 @@ public class lic10Test {
         params.F_PTS = 1;
         params.AREA1 = 1;
 
-        assertFalse(lic10.evaluate(points, params));
+        assertFalse(Lic10.evaluate(points, params));
     }
 
        /**
      * Contract:
-     * lic10 should return false when parameter constraints are violated (E_PTS < 1 or F_PTS < 1).
+     * Lic10 should return false when parameter constraints are violated (E_PTS < 1 or F_PTS < 1).
      *
      * Expected Behavior:
      * Given valid points but an invalid E_PTS (0), the function shall return false.
      */
     @Test
     void returnsFalseWhenEptsOrFptsIsLessThanOne() {
-        lic10 lic10 = new lic10();
+        Lic10 Lic10 = new Lic10();
 
         Point[] points = {
             new Point(0, 0),
@@ -129,12 +129,12 @@ public class lic10Test {
         params.F_PTS = 1;
         params.AREA1 = 1;
 
-        assertFalse(lic10.evaluate(points, params));
+        assertFalse(Lic10.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic10 should return false when parameter constraints are violated
+     * Lic10 should return false when parameter constraints are violated
      * (E_PTS + F_PTS > NUMPOINTS - 3).
      *
      * Expected Behavior:
@@ -143,7 +143,7 @@ public class lic10Test {
      */
     @Test
     void returnsFalseWhenEptsPlusFptsTooLargeForNumpoints() {
-        lic10 lic10 = new lic10();
+        Lic10 Lic10 = new Lic10();
 
         Point[] points = {
             new Point(0, 0),
@@ -158,6 +158,6 @@ public class lic10Test {
         params.F_PTS = 1; // 2 + 1 = 3 > (5 - 3) = 2 => invalid
         params.AREA1 = 0.1;
 
-        assertFalse(lic10.evaluate(points, params));
+        assertFalse(Lic10.evaluate(points, params));
     }
 }

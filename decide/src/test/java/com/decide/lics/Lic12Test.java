@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public class lic12Test {
+public class Lic12Test {
     /**
      * Contract:
      * The parameter K_PTS has to lie in range [-1;nPoints-2]
@@ -19,7 +19,7 @@ public class lic12Test {
      */
     @Test
     void throwsInvalidArgumentForIllegalKPTS() {
-        lic12 lic12 = new lic12();
+        Lic12 Lic12 = new Lic12();
         Point[] points = {new Point(0, 0),
                         new Point(2, 3),
                         new Point(2, 0),
@@ -32,12 +32,12 @@ public class lic12Test {
         params.LENGTH2 = 2;
         assertThrows(IllegalArgumentException.class, 
             () -> {
-            lic12.evaluate(points, params);
+            Lic12.evaluate(points, params);
         });
         params.K_PTS = 4;
         assertThrows(IllegalArgumentException.class, 
             () -> {
-            lic12.evaluate(points, params);
+            Lic12.evaluate(points, params);
         });
     }
 
@@ -45,7 +45,7 @@ public class lic12Test {
 
     /**
      * Contract:
-     * lic12 shall return FALSE when the number of points is less than 3, as the condition cannot be met.
+     * Lic12 shall return FALSE when the number of points is less than 3, as the condition cannot be met.
      *  
      * Expected behavior:
      * When given a set of points with a length 2, the function shall return FALSE.
@@ -56,13 +56,13 @@ public class lic12Test {
                         new Point(0, 0),
         };
         Parameters params = new Parameters();
-        lic12 lic12 = new lic12();
-        assertFalse(lic12.evaluate(points, params));
+        Lic12 Lic12 = new Lic12();
+        assertFalse(Lic12.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic12 shall return TRUE iff there exist one set of 2 points seperated by K_PTS points, whose distance is greater than LENGTH1,
+     * Lic12 shall return TRUE iff there exist one set of 2 points seperated by K_PTS points, whose distance is greater than LENGTH1,
      * and one set of 2 points (seperated ..), whose distance is lesser than LENGTH2.
      * 
      * Expected behavior:
@@ -83,13 +83,13 @@ public class lic12Test {
         params.K_PTS = 1;
         params.LENGTH1 = 3;
         params.LENGTH2 = 2;
-        lic12 lic12 = new lic12();
-        assertFalse(lic12.evaluate(points, params));
+        Lic12 Lic12 = new Lic12();
+        assertFalse(Lic12.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic12 shall return TRUE iff there exist one set of 2 points seperated by K_PTS points, whose distance is greater than LENGTH1,
+     * Lic12 shall return TRUE iff there exist one set of 2 points seperated by K_PTS points, whose distance is greater than LENGTH1,
      * and one set of 2 points (seperated ..), whose distance is lesser than LENGTH2.
      * 
      * Expected behavior:
@@ -110,13 +110,13 @@ public class lic12Test {
         params.K_PTS = 1;
         params.LENGTH1 = 2;
         params.LENGTH2 = 2;
-        lic12 lic12 = new lic12();
-        assertFalse(lic12.evaluate(points, params));
+        Lic12 Lic12 = new Lic12();
+        assertFalse(Lic12.evaluate(points, params));
     }
 
     /**
      * Contract:
-     * lic12 shall return TRUE iff there exist one set of 2 points seperated by K_PTS points, whose distance is greater than LENGTH1,
+     * Lic12 shall return TRUE iff there exist one set of 2 points seperated by K_PTS points, whose distance is greater than LENGTH1,
      * and one set of 2 points (seperated ..), whose distance is lesser than LENGTH2.
      * 
      * Expected behavior:
@@ -136,7 +136,7 @@ public class lic12Test {
         params.K_PTS = 1;
         params.LENGTH1 = 2;
         params.LENGTH2 = 2;
-        lic12 lic12 = new lic12();
-        assertTrue(lic12.evaluate(points, params));
+        Lic12 Lic12 = new Lic12();
+        assertTrue(Lic12.evaluate(points, params));
     }
 }

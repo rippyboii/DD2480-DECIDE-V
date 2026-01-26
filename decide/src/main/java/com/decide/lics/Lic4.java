@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import com.decide.model.Parameters;
 import com.decide.model.Point;
 
-public final class lic4 implements lic {
-    public lic4() {
+public final class Lic4 implements Lic {
+    public Lic4() {
     }
     // Determine the quadrant of a point facoring quadrants of lower values first
     private static int decideQuad(Point p){
