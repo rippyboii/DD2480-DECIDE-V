@@ -3,7 +3,7 @@ package com.decide.geometry;
 import com.decide.model.Point;
 
 public class MathHelp {
-    // Prevent instantiation (utility class)
+
     private MathHelp(){} 
 
     /**
@@ -83,11 +83,11 @@ public class MathHelp {
         double d1 = calculateDistance(p1, p2);
         double d2 = calculateDistance(p2, p3);
         double d3 = calculateDistance(p3, p1);
-        double max_d = Math.max(d1, Math.max(d2, d3));
+        double maxD = Math.max(d1, Math.max(d2, d3));
         // check if the points are collinear (2D cross product) (also applies to if points are identical)
         if (Math.abs(v1[0] * v2[1] - v1[1]*v2[0]) < 1e-10) {
             
-            return max_d / 2.0;
+            return maxD / 2.0;
         }
         // check if the triangle is obtuse or acute
 
@@ -96,7 +96,7 @@ public class MathHelp {
         double angle3 = angleRadians(p2.x(),p2.y(),p3.x(),p3.y(),p1.x(),p1.y());
 
         if (Math.abs(angle1) > Math.PI/2 || Math.abs(angle2) > Math.PI/2 || Math.abs(angle3) > Math.PI/2) {
-            return max_d / 2.0;
+            return maxD / 2.0;
         }
 
         // now the triangle is acute -> the radius is the circumradius
@@ -138,11 +138,11 @@ public class MathHelp {
                             (p2.x()*p2.x() + p2.y()*p2.y() - p3.x()*p3.x() - p3.y()*p3.y()) / 2.0
         };
 
-        double[] p_h = calculateCrossProduct(line1, line2); // the point in homogeneous coordinates
-        if (p_h[2] == 0) { // direction
+        double[] pointH = calculateCrossProduct(line1, line2); // the point in homogeneous coordinates
+        if (pointH[2] == 0) { // direction
             throw new IllegalArgumentException("The resulting point is in infinity!");
         }
-        return new Point(p_h[0]/p_h[2], p_h[1]/p_h[2]);
+        return new Point(pointH[0]/pointH[2], pointH[1]/pointH[2]);
     }
 
     /**
@@ -192,8 +192,8 @@ public static double pointToLineDistance(Point a, Point b, Point p) {
         return calculateDistance(a, p); 
     }
 
-    double normal_cross = dx * (p.y() - a.y()) - dy * (p.x() - a.x());
-    return Math.abs(normal_cross) / (Math.hypot(dx, dy));
+    double normalCross = dx * (p.y() - a.y()) - dy * (p.x() - a.x());
+    return Math.abs(normalCross) / (Math.hypot(dx, dy));
 
 
 
