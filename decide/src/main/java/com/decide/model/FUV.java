@@ -21,7 +21,7 @@ public class FUV {
             row_true = true;
             for (int j = 0; j < n; j++){
                 //Check for false boolean in PUM row
-                if(!this.pum[i][j]){
+                if(!this.pum[i][j] && i != j){
                     row_true = false;
                 }
             }

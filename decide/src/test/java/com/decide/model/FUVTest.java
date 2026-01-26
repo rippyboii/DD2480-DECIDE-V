@@ -91,4 +91,33 @@ public class FUVTest {
         assertTrue(fuv.fuv[2]);
         
     } 
+
+    @Test
+    public void testFalseDiagonalPUMFUV() {
+        /**
+         * Contract:
+         * FUV[i] should be set to true if PUV[i] is 
+         * false (indicating that the associated LIC should not hold back launch) or if all elements 
+         * in PUM row i are true.
+         * Expected Behavior:
+         * Given a PUV filled with true values and a PUM filled with true values except for the diagonal, the FUV should
+         * be all true
+         */
+        
+        
+        //Dummy PUV
+        boolean [] puv = new boolean[]{false, false, false};
+        //Dummy PUM
+        boolean [][] pum = new boolean[][]{
+            {false, true, true},
+            {true, false, true},
+            {true, true, false}};
+        FUV fuv = new FUV(puv, pum);
+        fuv.calculate_FUV();
+
+        assertTrue(fuv.fuv[0]);
+        assertTrue(fuv.fuv[1]);
+        assertTrue(fuv.fuv[2]);
+        
+    } 
 }
