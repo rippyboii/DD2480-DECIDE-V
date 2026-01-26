@@ -1,41 +1,41 @@
 package com.decide.model;
-import com.decide.LICs.LIC;
-import com.decide.LICs.LIC0;
-import com.decide.LICs.LIC1;
-import com.decide.LICs.LIC10;
-import com.decide.LICs.LIC11;
-import com.decide.LICs.LIC12;
-import com.decide.LICs.LIC13;
-import com.decide.LICs.LIC14;
-import com.decide.LICs.LIC2;
-import com.decide.LICs.LIC3;
-import com.decide.LICs.LIC4;
-import com.decide.LICs.LIC5;
-import com.decide.LICs.LIC6;
-import com.decide.LICs.LIC7;
-import com.decide.LICs.LIC8;
-import com.decide.LICs.LIC9;
+import com.decide.lics.Lic;
+import com.decide.lics.Lic0;
+import com.decide.lics.Lic1;
+import com.decide.lics.Lic10;
+import com.decide.lics.Lic11;
+import com.decide.lics.Lic12;
+import com.decide.lics.Lic13;
+import com.decide.lics.Lic14;
+import com.decide.lics.Lic2;
+import com.decide.lics.Lic3;
+import com.decide.lics.Lic4;
+import com.decide.lics.Lic5;
+import com.decide.lics.Lic6;
+import com.decide.lics.Lic7;
+import com.decide.lics.Lic8;
+import com.decide.lics.Lic9;
 
 
 public class CMV {
-    private LIC[] LIClist;
+    private Lic[] LIClist;
 
     public CMV() {
-        this.LIClist = new LIC[] {  new LIC0(),
-                                    new LIC1(),
-                                    new LIC2(),
-                                    new LIC3(),
-                                    new LIC4(),
-                                    new LIC5(),
-                                    new LIC6(),
-                                    new LIC7(),
-                                    new LIC8(),
-                                    new LIC9(),
-                                    new LIC10(),
-                                    new LIC11(),
-                                    new LIC12(),
-                                    new LIC13(),
-                                    new LIC14(),
+        this.LIClist = new Lic[] {  new Lic0(),
+                                    new Lic1(),
+                                    new Lic2(),
+                                    new Lic3(),
+                                    new Lic4(),
+                                    new Lic5(),
+                                    new Lic6(),
+                                    new Lic7(),
+                                    new Lic8(),
+                                    new Lic9(),
+                                    new Lic10(),
+                                    new Lic11(),
+                                    new Lic12(),
+                                    new Lic13(),
+                                    new Lic14(),
         };
     }
 
