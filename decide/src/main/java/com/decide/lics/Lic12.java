@@ -27,8 +27,8 @@ public final class Lic12 implements Lic {
         if (nPoints < 3) {
             return false;
         }
-        if (params.getK_PTS() < 1 || params.getK_PTS() > nPoints - 2) {
-            throw new IllegalArgumentException("K_PTS must be in the range [1, NUMPOINTS - 2]");
+        if (params.getK_PTS() > nPoints - 2) {
+            throw new IllegalArgumentException("K_PTS must be smaller than NUMPOINTS - 2.");
         }
         boolean greaterThanLength1 = false;
         boolean lesserThanLength2 = false;

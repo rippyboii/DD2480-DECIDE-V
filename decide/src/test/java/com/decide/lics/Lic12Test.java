@@ -11,11 +11,13 @@ import com.decide.model.Point;
 public class Lic12Test {
     /**
      * Contract:
-     * The parameter K_PTS has to lie in range [-1;nPoints-2]
+     * The parameter K_PTS has to lie in range [-1;nPoints-2]. ParameterTest
+     * ensures that K_PTS is non-negative.
      *  
      * Expected behavior:
-     * When the parameter K_PTS is set to zero, or set to 4 when the number of points is 5, 
-     * the function shall throw IllegalArgumentException.
+     * When the parameter K_PTS is set to 4 when the number of points is 5, 
+     * the function shall throw IllegalArgumentException. Since ParameterTest
+     * ensures that K_PTS is non-negative, we only need to test the upper bound
      */
     @Test
     void throwsInvalidArgumentForIllegalKPTS() {
@@ -27,14 +29,9 @@ public class Lic12Test {
                         new Point(3, 2)
         };
         Parameters params = new Parameters();
-        params.setK_PTS(0); // 
+        params.setK_PTS(4); // Illegal K_PTS for 5 points
         params.setLENGTH1(3);
         params.setLENGTH2(2);
-        assertThrows(IllegalArgumentException.class, 
-            () -> {
-            Lic12.evaluate(points, params);
-        });
-        params.setK_PTS(4);
         assertThrows(IllegalArgumentException.class, 
             () -> {
             Lic12.evaluate(points, params);
