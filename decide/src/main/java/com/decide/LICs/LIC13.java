@@ -29,6 +29,10 @@ public class LIC13 implements LIC {
         if (nPoints < 5) {
             return false;
         }
+        // check if the parameters are valid
+        if (params.A_PTS < 1 || params.B_PTS < 1 || (params.A_PTS + params.B_PTS > nPoints-3)) {
+            throw new IllegalArgumentException();
+        }
         double rad;
         boolean cannotBeContained = false;
         boolean canBeContained = false;
