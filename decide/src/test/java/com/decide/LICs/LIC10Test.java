@@ -161,4 +161,3 @@ class LIC10Test {
         assertFalse(lic10.evaluate(points, params));
     }
 }
-}
