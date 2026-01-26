@@ -1,5 +1,6 @@
 package com.decide.model;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -52,6 +53,7 @@ public class CMVTest {
      * where the value at index i corresponds to the result of i-th LIC.
      * 
      * Expected behavior:
+     * The length of the resulting boolean array should be 15, and everything should execute correctly.
      */
     @Test
     void testEvaluation() {
@@ -59,6 +61,7 @@ public class CMVTest {
         CMV cmv = new CMV();
         Parameters params = sampleParameters();
         boolean[] result = cmv.evaluate(points, params);
+        assertNotNull(result);
         assertTrue(result.length == 15);
     } 
 }
