@@ -34,6 +34,34 @@ public class MathHelp {
     );
     }
 
+
+
+    public static double angleRadians(
+            double ax, double ay,
+            double bx, double by,
+            double cx, double cy
+    ) {
+        // Vectors BA and BC (from vertex B to A/C)
+        double v1x = ax - bx;
+        double v1y = ay - by;
+        double v2x = cx - bx;
+        double v2y = cy - by;
+        
+        double norm1 = Math.hypot(v1x, v1y);
+        double norm2 = Math.hypot(v2x, v2y);
+
+        // if the lenght of the vectors are 0, then undefined angle
+        if (norm1 == 0.0 || norm2 == 0.0) {
+            throw new IllegalArgumentException("Angle undefined: well well, you have a vector with zero length!");
+        }
+
+        // using dot product to get the cos of the angle
+        double dot = v1x * v2x + v1y * v2y;
+        double cos = dot / (norm1 * norm2);
+
+        return Math.acos(cos); // [0, π]
+    }
+
     /**
      * Calculates the smallest radius needed to enclose 3 points inside a circle.
      * 
@@ -63,9 +91,9 @@ public class MathHelp {
         }
         // check if the triangle is obtuse or acute
 
-        double angle1 = AngleCheck.angleRadians(p1.x(),p1.y(),p2.x(),p2.y(),p3.x(),p3.y());
-        double angle2 = AngleCheck.angleRadians(p3.x(),p3.y(),p1.x(),p1.y(),p2.x(),p2.y());
-        double angle3 = AngleCheck.angleRadians(p2.x(),p2.y(),p3.x(),p3.y(),p1.x(),p1.y());
+        double angle1 = angleRadians(p1.x(),p1.y(),p2.x(),p2.y(),p3.x(),p3.y());
+        double angle2 = angleRadians(p3.x(),p3.y(),p1.x(),p1.y(),p2.x(),p2.y());
+        double angle3 = angleRadians(p2.x(),p2.y(),p3.x(),p3.y(),p1.x(),p1.y());
 
         if (Math.abs(angle1) > Math.PI/2 || Math.abs(angle2) > Math.PI/2 || Math.abs(angle3) > Math.PI/2) {
             return max_d / 2.0;
@@ -137,5 +165,40 @@ public class MathHelp {
         return result;
     }
 
+
+
+/**
+ * Calculates the shortest (perpendicular) distance from a point P to the infinite line
+ * passing through points A and B.
+ * If A and B are identical, the line is undefined, so this returns distance(A, P).
+ * 
+ * Note: The area of a triangle is half of the determinant formed by the vectors AB and AP.
+ *
+ * @param a first point defining the line
+ * @param b second point defining the line
+ * @param p point whose distance to the line is computed
+ * @return perpendicular distance from p to line AB (or distance(a, p) if a == b)
+ * @throws IllegalArgumentException if any point is null
+ */
+public static double pointToLineDistance(Point a, Point b, Point p) {
+    if (a == null || b == null || p == null) {
+        throw new IllegalArgumentException("Points can not be null. Check your parameters!");
+    }
+
+    double dx = b.x() - a.x();
+    double dy = b.y() - a.y();
+
+    if (Math.hypot(dx, dy) == 0.0) {
+        return calculateDistance(a, p); 
+    }
+
+    double normal_cross = dx * (p.y() - a.y()) - dy * (p.x() - a.x());
+    return Math.abs(normal_cross) / (Math.hypot(dx, dy));
+
+
+
 }
 
+
+
+}

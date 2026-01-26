@@ -2,6 +2,7 @@ package com.decide.geometry;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.Test;
 
 import com.decide.model.Point;
@@ -200,4 +201,129 @@ public class MathHelpTest {
         assertEquals(result[1], 0.96,  0.00001);
         assertEquals(result[2], -0.84, 0.00001);
     }
+
+
+    /**
+     * Contract:
+     * The pointToLineDistance function should correctly calculate the shortest (perpendicular) distance
+     * from a point P to the infinite line passing through points A and B.
+     *
+     * Expected Behavior:
+     * for A = (0, 0) and B = (4, 0), the line AB is the x-axis (y = 0).
+     * for P = (1, 3), the perpendicular distance to the x-axis should be 3.
+     */
+    @Test
+    void pTLValidDistanceReturn() {
+        Point a = new Point(0.0, 0.0);
+        Point b = new Point(4.0, 0.0);
+        Point p = new Point(1.0, 3.0);
+
+        double result = MathHelp.pointToLineDistance(a, b, p);
+
+        assertEquals(3.0, result, 1e-9);
+    }
+
+    /**
+     * Contract:
+     * If points A and B are identical, pointToLineDistance should fall back to the normal
+     * distance between A and P.
+     *
+     * Expected Behavior:
+     * Given A = B = (2, 2) and P = (5, 6),
+     * distance(A, P) = sqrt((5-2)^2 + (6-2)^2) = 5.
+     */
+    @Test
+    void LineisUndefined() {
+        Point a = new Point(2.0, 2.0);
+        Point b = new Point(2.0, 2.0); 
+        Point p = new Point(5.0, 6.0);
+
+        double result = MathHelp.pointToLineDistance(a, b, p);
+
+        assertEquals(5.0, result, 1e-9);
+    }
+
+
+    /**
+     * Contract:
+     * The angleRadians function should correctly calculate the angle at vertex B formed by
+     * three points A, B, and C, measured in radians. The angle is computed between vectors
+     * BA and BC (from B to A and from B to C).
+     *
+     * Expected Behavior:
+     * Given points A(1,0), B(0,0), and C(0,1), the angle at vertex B is 90 degrees (π/2 radians).
+     * Vector BA points along the positive x-axis, and vector BC points along the positive y-axis,
+     * forming a right angle. The function should return π/2 ≈ 1.5708 radians.
+     */
+    @Test
+        void testAngle() {
+            double angle = MathHelp.angleRadians(1, 0, 0, 0, 0, 1);
+            assertEquals(Math.PI / 2.0, angle, 1e-12); 
+            System.out.println("Angle ABC: " + angle);
+        }
+
+    /**
+     * Contract:
+     * The triangleArea function should correctly calculate the area of a triangle formed by
+     * three non-collinear points using the determinant formula.
+     *
+     * Expected Behavior:
+     * Given points (0,0), (1,0), and (0,1) which form a right triangle with base = 1 and height = 1,
+     * the area should be 0.5 * base * height = 0.5 square units.
+     */
+
+    @Test
+    void returnsHalfForRightTriangle() {
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(1, 0);
+        Point p3 = new Point(0, 1);
+
+        double area = MathHelp.triangleArea(p1, p2, p3);
+        assertEquals(0.5, area, 1e-9);
+    }
+
+    /**
+     * Contract:
+     * The triangleArea function should return 0 when the three points are collinear,
+     * as collinear points do not form a valid triangle with non-zero area.
+     *
+     * Expected Behavior:
+     * Given points (0,0), (1,0), and (2,0) which all lie on the x-axis (y = 0),
+     * the points are collinear and therefore the area should be 0.
+     */
+
+    @Test
+    void collinearPointsReturnZero() {
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(1, 0);
+        Point p3 = new Point(2, 0);
+
+        double area = MathHelp.triangleArea(p1, p2, p3);
+        assertEquals(0.0, area, 1e-9);
+    }
+
+    /**
+     * Contract:
+     * The triangleArea function should return the same area regardless of the order
+     * in which the points are provided, as the area of a triangle is invariant to
+     * vertex ordering.
+     *
+     * Expected Behavior:
+     * Given points forming a right triangle with area 0.5, computing the area with
+     * points in order (p1, p2, p3) and (p2, p3, p1) should yield identical results.
+     * The function uses absolute value to ensure non-negative area regardless of point ordering.
+     */
+
+    @Test
+    void pointOrderDoesNotChangeArea() {
+        Point p1 = new Point(0, 0);
+        Point p2 = new Point(1, 0);
+        Point p3 = new Point(0, 1);
+
+        double area1 = MathHelp.triangleArea(p1, p2, p3);
+        double area2 = MathHelp.triangleArea(p2, p3, p1);
+
+        assertEquals(area1, area2, 1e-9);
+    }
+
 }
