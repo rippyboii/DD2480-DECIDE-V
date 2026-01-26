@@ -22,7 +22,7 @@ public final class Lic3 implements Lic {
 
         for (int i = 0; i < n - 2; i++) {
             double area = MathHelp.triangleArea(points[i], points[i + 1], points[i + 2]);
-            if (area > params.AREA1) {
+            if (area > params.getAREA1()) {
                 return true;
             }
         }

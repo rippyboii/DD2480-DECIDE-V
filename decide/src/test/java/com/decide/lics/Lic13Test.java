@@ -27,17 +27,17 @@ public class Lic13Test {
                         new Point(3, 2)
         };
         Parameters params = new Parameters();
-        params.A_PTS=0;
-        params.B_PTS=2;
-        params.RADIUS1=1;
-        params.RADIUS2=1;
+        params.setA_PTS(0);
+        params.setB_PTS(2);
+        params.setRADIUS1(1);
+        params.setRADIUS2(1);
         // A_PTS is 0, shall throw Illegal Argument
         assertThrows(IllegalArgumentException.class, 
             () -> {
             lic13.evaluate(points, params);
         });
-        params.A_PTS=2;
-        params.B_PTS=2;
+        params.setA_PTS(2);
+        params.setB_PTS(2);
         assertThrows(IllegalArgumentException.class, 
             () -> {
             lic13.evaluate(points, params);
@@ -86,10 +86,10 @@ public class Lic13Test {
                         new Point(23, 24),
         };
         Parameters params = new Parameters();
-        params.A_PTS=2;
-        params.B_PTS=2;
-        params.RADIUS1=1;
-        params.RADIUS2=1;
+        params.setA_PTS(2);
+        params.setB_PTS(2);
+        params.setRADIUS1(1);
+        params.setRADIUS2(1);
         Lic13 Lic13 = new Lic13();
         assertFalse(Lic13.evaluate(points, params));
     }
@@ -114,10 +114,10 @@ public class Lic13Test {
                         new Point(1, 2),
         };
         Parameters params = new Parameters();
-        params.A_PTS=1;
-        params.B_PTS=1;
-        params.RADIUS1=5;
-        params.RADIUS2=5;
+        params.setA_PTS(1);
+        params.setB_PTS(1);
+        params.setRADIUS1(5);
+        params.setRADIUS2(5);
         Lic13 Lic13 = new Lic13();
         assertFalse(Lic13.evaluate(points, params));
     }
@@ -144,10 +144,10 @@ public class Lic13Test {
                         new Point(2, 3),
         };
         Parameters params = new Parameters();
-        params.A_PTS=1;
-        params.B_PTS=1;
-        params.RADIUS1=3;
-        params.RADIUS2=1.5;
+        params.setA_PTS(1);
+        params.setB_PTS(1);
+        params.setRADIUS1(3);
+        params.setRADIUS2(1.5);
         Lic13 Lic13 = new Lic13();
         assertTrue(Lic13.evaluate(points, params));
     }

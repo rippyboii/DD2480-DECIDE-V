@@ -30,7 +30,7 @@ public final class Lic0 implements Lic {
 
         for (int i = 0; i < n - 1; i++) {
             double d = MathHelp.calculateDistance(points[i], points[i + 1]);
-            if (d > params.LENGTH1) {
+            if (d > params.getLENGTH1()) {
                 return true;
             }
         }

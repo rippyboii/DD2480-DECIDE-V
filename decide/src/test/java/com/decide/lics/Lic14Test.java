@@ -31,10 +31,10 @@ public class Lic14Test {
 
         // Set E_PTS and F_PTS to minimum valid values and AREA1, AREA2 to 0
         Parameters params = new Parameters();
-        params.E_PTS = MIN_VALID_E_PTS;
-        params.F_PTS = MIN_VALID_F_PTS;
-        params.AREA1 = 0.0;
-        params.AREA2 = 0.0;
+        params.setE_PTS(MIN_VALID_E_PTS);
+        params.setF_PTS(MIN_VALID_F_PTS);
+        params.setAREA1(0.0);
+        params.setAREA2(0.0);
 
         // Assert
         assertFalse(new Lic14().evaluate(fourPoints, params));
@@ -64,10 +64,10 @@ public class Lic14Test {
 
         // Set E_PTS and F_PTS to minimum valid values
         Parameters params = new Parameters();
-        params.E_PTS = MIN_VALID_E_PTS;
-        params.F_PTS = MIN_VALID_F_PTS;
-        params.AREA1 = 0.5; // Area greater than 0.5 exists
-        params.AREA2 = 0.75; // No area less than 0.75 exists
+        params.setE_PTS(MIN_VALID_E_PTS);
+        params.setF_PTS(MIN_VALID_F_PTS);
+        params.setAREA1(0.5); // Area greater than 0.5 exists
+        params.setAREA2(0.75); // No area less than 0.75 exists
 
         // Assert
         assertFalse(new Lic14().evaluate(area_1_triangle, params));
@@ -97,10 +97,10 @@ public class Lic14Test {
 
         // Set E_PTS and F_PTS to minimum valid values
         Parameters params = new Parameters();
-        params.E_PTS = MIN_VALID_E_PTS;
-        params.F_PTS = MIN_VALID_F_PTS;
-        params.AREA1 = 1.2; // No area greater than 1.2 exists
-        params.AREA2 = 1.5; // Area less than 1.5 exists
+        params.setE_PTS(MIN_VALID_E_PTS);
+        params.setF_PTS(MIN_VALID_F_PTS);
+        params.setAREA1(1.2); // No area greater than 1.2 exists
+        params.setAREA2(1.5); // Area less than 1.5 exists
 
         // Assert
         assertFalse(new Lic14().evaluate(area_1_triangle, params));
@@ -130,10 +130,10 @@ public class Lic14Test {
 
         // Set E_PTS and F_PTS to minimum valid values
         Parameters params = new Parameters();
-        params.E_PTS = MIN_VALID_E_PTS;
-        params.F_PTS = MIN_VALID_F_PTS;
-        params.AREA1 = 0.5; // Area greater than 0.5 exists
-        params.AREA2 = 1.5; // Area less than 1.5 exists
+        params.setE_PTS(MIN_VALID_E_PTS);
+        params.setF_PTS(MIN_VALID_F_PTS);
+        params.setAREA1(0.5); // Area greater than 0.5 exists
+        params.setAREA2(1.5); // Area less than 1.5 exists
 
         // Assert
         assertTrue(new Lic14().evaluate(area_1_triangle, params));
@@ -161,10 +161,10 @@ public class Lic14Test {
 
         // Set E_PTS and F_PTS to actual number of intervening points
         Parameters params = new Parameters();
-        params.E_PTS = 2;
-        params.F_PTS = 1;
-        params.AREA1 = 0.5;
-        params.AREA2 = 1.5;
+        params.setE_PTS(2);
+        params.setF_PTS(1);
+        params.setAREA1(0.5);
+        params.setAREA2(1.5);
 
         // Assert
         assertFalse(new Lic14().evaluate(points, params));

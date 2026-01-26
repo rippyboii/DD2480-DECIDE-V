@@ -21,8 +21,8 @@ public class Lic7Test {
     @Test
     void GreaterDistance(){
         Parameters p = new Parameters();
-        p.K_PTS = 2;
-        p.LENGTH1 = 5.0;
+        p.setK_PTS(2);
+        p.setLENGTH1(5.0);
 
         Point[] points = {
             new Point(1.0, 5.0),
@@ -48,8 +48,8 @@ public class Lic7Test {
     @Test
     void NotConsecutive(){
         Parameters p = new Parameters();
-        p.K_PTS = 2;
-        p.LENGTH1 = 5.0;
+        p.setK_PTS(2);
+        p.setLENGTH1(5.0);
 
         Point[] points = {
             new Point(1.0, 5.0),
@@ -75,8 +75,8 @@ public class Lic7Test {
     @Test
     void LesserDistance(){
         Parameters p = new Parameters();
-        p.K_PTS = 2;
-        p.LENGTH1 = 5.0;
+        p.setK_PTS(2);
+        p.setLENGTH1(5.0);
 
         Point[] points = {
             new Point(1.0, 5.0),

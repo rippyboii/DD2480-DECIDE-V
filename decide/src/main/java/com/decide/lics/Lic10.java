@@ -22,22 +22,22 @@ public final class Lic10 implements Lic {
         if (nPoints < 5){ // We need at least 5 points
             return false;
         }
-        if (params.E_PTS < 1 || params.F_PTS < 1) {
+        if (params.getE_PTS() < 1 || params.getF_PTS() < 1) {
             return false;
             }
 
-        if (params.E_PTS + params.F_PTS > nPoints - 3) {
+        if (params.getE_PTS() + params.getF_PTS() > nPoints - 3) {
             return false;
             }
 
-        int maxI = nPoints - (params.E_PTS + params.F_PTS + 3); //max i depends on parameters E_PTS and F_PTS
+        int maxI = nPoints - (params.getE_PTS() + params.getF_PTS() + 3); //max i depends on parameters E_PTS and F_PTS
         for (int i = 0; i <= maxI; i++) {
             Point p1 = points[i];
-            Point p2 = points[i + params.E_PTS + 1];
-            Point p3 = points[i + params.E_PTS + params.F_PTS + 2]; 
+            Point p2 = points[i + params.getE_PTS() + 1];
+            Point p3 = points[i + params.getE_PTS() + params.getF_PTS() + 2]; 
 
             double area = MathHelp.triangleArea(p1, p2, p3);
-            if (area > params.AREA1){
+            if (area > params.getAREA1()){
                 return true; // Triangle area exceeds AREA1
             }
         }

@@ -25,8 +25,8 @@ public class Lic6Test {
             new Point(1, 0)
         };
         Parameters params = new Parameters();
-        params.N_PTS = 3;
-        params.DIST = 1.0;
+        params.setN_PTS(3);
+        params.setDIST(1.0);
         
         assertFalse(lic6.evaluate(points, params));
     }
@@ -52,8 +52,8 @@ public class Lic6Test {
             new Point(4, 0)
         };
         Parameters params = new Parameters();
-        params.N_PTS = 3;
-        params.DIST = 2.0;
+        params.setN_PTS(3);
+        params.setDIST(2.0);
         
         assertTrue(lic6.evaluate(points, params));
     }
@@ -78,8 +78,8 @@ public class Lic6Test {
             new Point(4, 0)
         };
         Parameters params = new Parameters();
-        params.N_PTS = 3;
-        params.DIST = 1.0;
+        params.setN_PTS(3);
+        params.setDIST(1.0);
         
         assertFalse(lic6.evaluate(points, params));
     }
@@ -104,8 +104,8 @@ public class Lic6Test {
             new Point(4, 0)
         };
         Parameters params = new Parameters();
-        params.N_PTS = 3;
-        params.DIST = 1.0;
+        params.setN_PTS(3);
+        params.setDIST(1.0);
         
         assertFalse(lic6.evaluate(points, params));
     }
@@ -134,8 +134,8 @@ public class Lic6Test {
             new Point(6, 0)
         };
         Parameters params = new Parameters();
-        params.N_PTS = 4;
-        params.DIST = 2.0;
+        params.setN_PTS(4);
+        params.setDIST(2.0);
         
         assertTrue(lic6.evaluate(points, params));
     }
@@ -161,8 +161,8 @@ public class Lic6Test {
             new Point(0, 0)
         };
         Parameters params = new Parameters();
-        params.N_PTS = 3;
-        params.DIST = 1.0;
+        params.setN_PTS(3);
+        params.setDIST(1.0);
         
         assertTrue(lic6.evaluate(points, params));
     }

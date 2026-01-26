@@ -31,7 +31,7 @@ public final class Lic1 implements Lic {
             Point p3 = points[i+2];
 
             rad = MathHelp.calculateSmallestRadius(p1, p2, p3);
-            if (rad > params.RADIUS1) { // cannot be contained
+            if (rad > params.getRADIUS1()) { // cannot be contained
                 return true;
             }
         }

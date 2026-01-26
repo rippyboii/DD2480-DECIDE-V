@@ -12,7 +12,7 @@ public final class Lic11 implements Lic {
     public boolean evaluate(Point[] points, Parameters params) {
 
         int NUMPOINTS = points.length;
-        int G_PTS = params.G_PTS;
+        int G_PTS = params.getG_PTS();
 
         if (NUMPOINTS < 3) {
             return false;

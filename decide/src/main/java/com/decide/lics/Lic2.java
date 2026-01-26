@@ -22,7 +22,7 @@ public final class Lic2 implements Lic {
 
         for (int i = 0; i < n - 2; i++) {
             double angle = MathHelp.angleRadians(points[i].x(), points[i].y(), points[i + 1].x(), points[i + 1].y(), points[i + 2].x(), points[i + 2].y());
-            if (angle > Math.PI + params.EPSILON || angle < Math.PI - params.EPSILON) {
+            if (angle > Math.PI + params.getEPSILON() || angle < Math.PI - params.getEPSILON()) {
                 return true;
             }
         }
