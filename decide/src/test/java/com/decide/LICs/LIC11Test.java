@@ -1,9 +1,11 @@
 package com.decide.LICs;
 
-import com.decide.model.Point;
-import com.decide.model.Parameters;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import com.decide.model.Parameters;
+import com.decide.model.Point;
 
 public class LIC11Test {
 
@@ -16,6 +18,7 @@ public class LIC11Test {
  */
     @Test
     public void testNotEnoughPoints() {
+        LIC11 lic11 = new LIC11();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(1, 1)
@@ -23,7 +26,7 @@ public class LIC11Test {
         Parameters params = new Parameters();
         params.G_PTS = 1;
 
-        assertFalse(LIC11.evaluate(points, params));
+        assertFalse(lic11.evaluate(points, params));
     }
 
 
@@ -38,6 +41,7 @@ public class LIC11Test {
  */
     @Test
     public void testConditionNotMet() {
+        LIC11 lic11 = new LIC11();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(1, 1),
@@ -47,7 +51,7 @@ public class LIC11Test {
         Parameters params = new Parameters();
         params.G_PTS = 1;
 
-        assertFalse(LIC11.evaluate(points, params));
+        assertFalse(lic11.evaluate(points, params));
     }
 
 /**
@@ -60,6 +64,7 @@ public class LIC11Test {
  */
     @Test
     public void testEqualXCoordinates() {
+        LIC11 lic11 = new LIC11();
         Point[] points = new Point[]{
             new Point(5, 0),
             new Point(3, 1),
@@ -68,7 +73,7 @@ public class LIC11Test {
         Parameters params = new Parameters();
         params.G_PTS = 1;
 
-        assertFalse(LIC11.evaluate(points, params));
+        assertFalse(lic11.evaluate(points, params));
     }
 
 /**
@@ -81,6 +86,7 @@ public class LIC11Test {
  */
     @Test
     public void testWithLargerGPts() {
+        LIC11 lic11 = new LIC11();
         Point[] points = new Point[]{
             new Point(10, 0),
             new Point(5, 1),
@@ -90,6 +96,6 @@ public class LIC11Test {
         Parameters params = new Parameters();
         params.G_PTS = 2;
 
-        assertTrue(LIC11.evaluate(points, params));
+        assertTrue(lic11.evaluate(points, params));
     }
 }
