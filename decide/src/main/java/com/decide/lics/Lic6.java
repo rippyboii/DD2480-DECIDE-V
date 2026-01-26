@@ -5,7 +5,7 @@ import com.decide.model.Parameters;
 import com.decide.model.Point;
 
 
-public class Lic6 implements Lic {
+public final class Lic6 implements Lic {
     public Lic6() {
     }
     

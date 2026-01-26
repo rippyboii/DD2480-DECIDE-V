@@ -4,7 +4,7 @@ import com.decide.model.Parameters;
 import com.decide.model.Point;
 
 
-public class Lic11 implements Lic {
+public final class Lic11 implements Lic {
     public Lic11() {
     }
     
