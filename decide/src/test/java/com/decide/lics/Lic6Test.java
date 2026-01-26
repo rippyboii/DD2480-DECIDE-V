@@ -1,9 +1,11 @@
 package com.decide.lics;
 
-import com.decide.model.Point;
-import com.decide.model.Parameters;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import com.decide.model.Parameters;
+import com.decide.model.Point;
 
 public class Lic6Test {
     
@@ -17,6 +19,7 @@ public class Lic6Test {
  */
     @Test
     public void testNotEnoughPoints() {
+        Lic6 lic6 = new Lic6();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(1, 0)
@@ -25,7 +28,7 @@ public class Lic6Test {
         params.N_PTS = 3;
         params.DIST = 1.0;
         
-        assertFalse(Lic6.evaluate(points, params));
+        assertFalse(lic6.evaluate(points, params));
     }
     
 
@@ -42,6 +45,7 @@ public class Lic6Test {
 
     @Test
     public void testPointFarFromLine() {
+        Lic6 lic6 = new Lic6();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(2, 3),
@@ -51,7 +55,7 @@ public class Lic6Test {
         params.N_PTS = 3;
         params.DIST = 2.0;
         
-        assertTrue(Lic6.evaluate(points, params));
+        assertTrue(lic6.evaluate(points, params));
     }
 
 
@@ -67,6 +71,7 @@ public class Lic6Test {
     
     @Test
     public void testPointCloseToLine() {
+        Lic lic6 = new Lic6();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(2, 0.5),
@@ -76,7 +81,7 @@ public class Lic6Test {
         params.N_PTS = 3;
         params.DIST = 1.0;
         
-        assertFalse(Lic6.evaluate(points, params));
+        assertFalse(lic6.evaluate(points, params));
     }
 
 /**
@@ -92,6 +97,7 @@ public class Lic6Test {
 
     @Test
     public void testExactlyAtThreshold() {
+        Lic6 lic6 = new Lic6();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(2, 1),
@@ -101,9 +107,9 @@ public class Lic6Test {
         params.N_PTS = 3;
         params.DIST = 1.0;
         
-        assertFalse(Lic6.evaluate(points, params));
+        assertFalse(lic6.evaluate(points, params));
     }
-
+    
 /**
  * Contract:
  * Lic6 should evaluate all possible sets of N_PTS consecutive points and return
@@ -117,6 +123,7 @@ public class Lic6Test {
     
     @Test
     public void testMultipleConsecutivePoints() {
+        Lic6 lic6 = new Lic6();
         Point[] points = new Point[]{
             new Point(0, 0),
             new Point(1, 0.1),
@@ -130,7 +137,7 @@ public class Lic6Test {
         params.N_PTS = 4;
         params.DIST = 2.0;
         
-        assertTrue(Lic6.evaluate(points, params));
+        assertTrue(lic6.evaluate(points, params));
     }
     
 
@@ -146,6 +153,7 @@ public class Lic6Test {
     @Test
     public void testCoincidentEndpoints() {
 
+        Lic6 lic6 = new Lic6();
         // When first and last points are the same, distance should be measured from that point
         Point[] points = new Point[]{
             new Point(0, 0),
@@ -156,7 +164,7 @@ public class Lic6Test {
         params.N_PTS = 3;
         params.DIST = 1.0;
         
-        assertTrue(Lic6.evaluate(points, params));
+        assertTrue(lic6.evaluate(points, params));
     }
     
 }

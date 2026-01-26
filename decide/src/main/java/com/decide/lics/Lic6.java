@@ -1,13 +1,16 @@
 package com.decide.lics;
 
 import com.decide.geometry.MathHelp;
-import com.decide.model.Point;
 import com.decide.model.Parameters;
+import com.decide.model.Point;
 
 
-public class Lic6 {
-
-    public static boolean evaluate(Point[] points, Parameters params) {
+public class Lic6 implements Lic {
+    public Lic6() {
+    }
+    
+    @Override
+    public boolean evaluate(Point[] points, Parameters params) {
         if (points == null || params == null) {
             throw new IllegalArgumentException("Either your points or parameters are null");
         }

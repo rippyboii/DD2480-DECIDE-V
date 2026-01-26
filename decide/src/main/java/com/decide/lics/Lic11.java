@@ -1,12 +1,15 @@
 package com.decide.lics;
 
-import com.decide.model.Point;
 import com.decide.model.Parameters;
+import com.decide.model.Point;
 
 
-public class Lic11 {
-
-    public static boolean evaluate(Point[] points, Parameters params) {
+public class Lic11 implements Lic {
+    public Lic11() {
+    }
+    
+    @Override
+    public boolean evaluate(Point[] points, Parameters params) {
 
         int NUMPOINTS = points.length;
         int G_PTS = params.G_PTS;
