@@ -1,8 +1,8 @@
 package com.decide.LICs;
 
-import com.decide.model.Point;
-import com.decide.model.Parameters;
 import com.decide.geometry.MathHelp;
+import com.decide.model.Parameters;
+import com.decide.model.Point;
 
 public class LIC14 implements LIC {
     @Override
@@ -27,6 +27,10 @@ public class LIC14 implements LIC {
 
         if (area1 < 0 || area2 < 0) {
             throw new IllegalArgumentException("AREA1 and AREA2 must be non-negative.");
+        }
+
+        if (ePts + fPts > n - 3) {
+            return false; // Not enough points to form required triples
         }
 
         // Iterate through all valid triples of points
