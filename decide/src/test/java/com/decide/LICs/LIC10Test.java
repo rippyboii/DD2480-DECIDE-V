@@ -104,4 +104,61 @@ class LIC10Test {
 
         assertFalse(lic10.evaluate(points, params));
     }
+
+       /**
+     * Contract:
+     * LIC10 should return false when parameter constraints are violated (E_PTS < 1 or F_PTS < 1).
+     *
+     * Expected Behavior:
+     * Given valid points but an invalid E_PTS (0), the function shall return false.
+     */
+    @Test
+    void returnsFalseWhenEptsOrFptsIsLessThanOne() {
+        LIC10 lic10 = new LIC10();
+
+        Point[] points = {
+            new Point(0, 0),
+            new Point(1, 1),
+            new Point(0, 10),
+            new Point(2, 2),
+            new Point(10, 0)
+        };
+
+        Parameters params = new Parameters();
+        params.E_PTS = 0;   // invalid
+        params.F_PTS = 1;
+        params.AREA1 = 1;
+
+        assertFalse(lic10.evaluate(points, params));
+    }
+
+    /**
+     * Contract:
+     * LIC10 should return false when parameter constraints are violated
+     * (E_PTS + F_PTS > NUMPOINTS - 3).
+     *
+     * Expected Behavior:
+     * Given NUMPOINTS = 5 and E_PTS + F_PTS = 3, no valid triplet can be formed,
+     * and the function shall return false.
+     */
+    @Test
+    void returnsFalseWhenEptsPlusFptsTooLargeForNumpoints() {
+        LIC10 lic10 = new LIC10();
+
+        Point[] points = {
+            new Point(0, 0),
+            new Point(1, 0),
+            new Point(2, 0),
+            new Point(3, 0),
+            new Point(4, 0)
+        };
+
+        Parameters params = new Parameters();
+        params.E_PTS = 2;
+        params.F_PTS = 1; // 2 + 1 = 3 > (5 - 3) = 2 => invalid
+        params.AREA1 = 0.1;
+
+        assertFalse(lic10.evaluate(points, params));
+    }
+}
 }

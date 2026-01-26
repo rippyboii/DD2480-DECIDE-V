@@ -22,6 +22,14 @@ public final class LIC10 implements LIC {
         if (nPoints < 5){ // We need at least 5 points
             return false;
         }
+        if (params.E_PTS < 1 || params.F_PTS < 1) {
+            return false;
+            }
+
+        if (params.E_PTS + params.F_PTS > nPoints - 3) {
+            return false;
+            }
+
         int maxI = nPoints - (params.E_PTS + params.F_PTS + 3); //max i depends on parameters E_PTS and F_PTS
         for (int i = 0; i <= maxI; i++) {
             Point p1 = points[i];
