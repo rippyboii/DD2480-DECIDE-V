@@ -1,6 +1,7 @@
 package com.decide.LICs;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
@@ -8,6 +9,40 @@ import com.decide.model.Parameters;
 import com.decide.model.Point;
 
 public class LIC12Test {
+    /**
+     * Contract:
+     * The parameter K_PTS has to lie in range [-1;nPoints-2]
+     *  
+     * Expected behavior:
+     * When the parameter K_PTS is set to zero, or set to 4 when the number of points is 5, 
+     * the function shall throw IllegalArgumentException.
+     */
+    @Test
+    void throwsInvalidArgumentForIllegalKPTS() {
+        LIC12 lic12 = new LIC12();
+        Point[] points = {new Point(0, 0),
+                        new Point(2, 3),
+                        new Point(2, 0),
+                        new Point(3, 0),
+                        new Point(3, 2)
+        };
+        Parameters params = new Parameters();
+        params.K_PTS = 0; // 
+        params.LENGTH1 = 3;
+        params.LENGTH2 = 2;
+        assertThrows(IllegalArgumentException.class, 
+            () -> {
+            lic12.evaluate(points, params);
+        });
+        params.K_PTS = 4;
+        assertThrows(IllegalArgumentException.class, 
+            () -> {
+            lic12.evaluate(points, params);
+        });
+    }
+
+
+
     /**
      * Contract:
      * LIC12 shall return FALSE when the number of points is less than 3, as the condition cannot be met.
