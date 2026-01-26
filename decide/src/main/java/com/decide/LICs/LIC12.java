@@ -24,6 +24,9 @@ public final class LIC12 implements LIC {
     @Override
     public boolean evaluate(Point[] points, Parameters params) {
         int nPoints = points.length;
+        if (params.K_PTS < 1 || params.K_PTS > nPoints - 2) {
+            throw new IllegalArgumentException("K_PTS must be in the range [1, NUMPOINTS - 2]");
+        }
         if (nPoints < 3) {
             return false;
         }
