@@ -19,7 +19,7 @@ public class Lic13Test {
      */
     @Test
     void throwIllegalArgumentForInvalidParameters() {
-        Lic13 Lic13 = new Lic13();
+        Lic13 lic13 = new Lic13();
         Point[] points = {new Point(0, 0),
                         new Point(2, 3),
                         new Point(2, 0),
@@ -34,13 +34,13 @@ public class Lic13Test {
         // A_PTS is 0, shall throw Illegal Argument
         assertThrows(IllegalArgumentException.class, 
             () -> {
-            Lic13.evaluate(points, params);
+            lic13.evaluate(points, params);
         });
         params.A_PTS=2;
         params.B_PTS=2;
         assertThrows(IllegalArgumentException.class, 
             () -> {
-            Lic13.evaluate(points, params);
+            lic13.evaluate(points, params);
         });
     }
 
