@@ -30,23 +30,23 @@ public final class Lic13 implements Lic {
             return false;
         }
         // check if the parameters are valid
-        if (params.A_PTS < 1 || params.B_PTS < 1 || (params.A_PTS + params.B_PTS > nPoints-3)) {
+        if (params.getA_PTS() + params.getB_PTS() > nPoints-3) {
             throw new IllegalArgumentException();
         }
         double rad;
         boolean cannotBeContained = false;
         boolean canBeContained = false;
-        for (int i = 0; i + params.A_PTS + 2 + params.B_PTS < nPoints; i++) {
+        for (int i = 0; i + params.getA_PTS() + 2 + params.getB_PTS() < nPoints; i++) {
             Point p1 = points[i];
-            Point p2 = points[i+params.A_PTS + 1];
-            Point p3 = points[i+params.A_PTS + params.B_PTS + 2];
+            Point p2 = points[i+params.getA_PTS() + 1];
+            Point p3 = points[i+params.getA_PTS() + params.getB_PTS() + 2];
 
             rad = MathHelp.calculateSmallestRadius(p1, p2, p3);
             // update cannotBeContained and canBeContained if they are not already true
-            if (rad > params.RADIUS1 && !cannotBeContained) { 
+            if (rad > params.getRADIUS1() && !cannotBeContained) { 
                 cannotBeContained = true;
             }
-            if (rad <= params.RADIUS2 && !canBeContained) {
+            if (rad <= params.getRADIUS2() && !canBeContained) {
                 canBeContained = true;
             }
             if (canBeContained && cannotBeContained) {

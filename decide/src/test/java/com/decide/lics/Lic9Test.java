@@ -31,8 +31,8 @@ public class Lic9Test {
 
         // Set C_PTS and D_PTS to minimum valid values
         Parameters params = new Parameters();
-        params.C_PTS = MIN_VALID_C_PTS;
-        params.D_PTS = MIN_VALID_D_PTS;
+        params.setC_PTS(MIN_VALID_C_PTS);
+        params.setD_PTS(MIN_VALID_D_PTS);
 
         // Assert
         assertFalse(new Lic9().evaluate(fourPoints, params));
@@ -63,9 +63,9 @@ public class Lic9Test {
 
         // Set C_PTS and D_PTS to actual number of intervening points
         Parameters params = new Parameters();
-        params.C_PTS = 1;
-        params.D_PTS = 1;
-        params.EPSILON = 0.1; // Small epsilon
+        params.setC_PTS(MIN_VALID_C_PTS);
+        params.setD_PTS(MIN_VALID_D_PTS);
+        params.setEPSILON(0.1); // Small epsilon
 
         // Assert
         assertTrue(new Lic9().evaluate(points, params));
@@ -92,9 +92,9 @@ public class Lic9Test {
 
         // Set C_PTS and D_PTS to actual number of intervening points
         Parameters params = new Parameters();
-        params.C_PTS = 1;
-        params.D_PTS = 1;
-        params.EPSILON = 0.1; // Small epsilon
+        params.setC_PTS(MIN_VALID_C_PTS);
+        params.setD_PTS(MIN_VALID_D_PTS);
+        params.setEPSILON(0.1); // Small epsilon
 
         // Assert
         assertFalse(new Lic9().evaluate(points, params));
@@ -122,9 +122,9 @@ public class Lic9Test {
 
         // Set C_PTS and D_PTS to actual number of intervening points
         Parameters params = new Parameters();
-        params.C_PTS = 1;
-        params.D_PTS = 1;
-        params.EPSILON = 0.1; // Small epsilon
+        params.setC_PTS(MIN_VALID_C_PTS);
+        params.setD_PTS(MIN_VALID_D_PTS);
+        params.setEPSILON(0.1); // Small epsilon
 
         // Assert
         assertFalse(new Lic9().evaluate(points, params));
@@ -151,9 +151,9 @@ public class Lic9Test {
 
         // Set C_PTS and D_PTS to actual number of intervening points
         Parameters params = new Parameters();
-        params.C_PTS = 2;
-        params.D_PTS = 1;
-        params.EPSILON = 0.1; // Small epsilon
+        params.setC_PTS(2);
+        params.setD_PTS(1);
+        params.setEPSILON(0.1); // Small epsilon
 
         // Assert
         assertFalse(new Lic9().evaluate(points, params));

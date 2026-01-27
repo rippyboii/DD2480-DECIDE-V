@@ -23,7 +23,7 @@ public class Lic1Test {
                         new Point(0, 2)
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = 1;
+        params.setRADIUS1(1);
         assertFalse(Lic1.evaluate(points, params));
     }
 
@@ -46,7 +46,7 @@ public class Lic1Test {
                         new Point(7, 4),
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = 5;
+        params.setRADIUS1(5);
         assertTrue(Lic1.evaluate(points, params));
     }
 
@@ -70,7 +70,7 @@ public class Lic1Test {
                         new Point(7, 4),
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = 3;
+        params.setRADIUS1(3);
         assertTrue(Lic1.evaluate(points, params));
     }
 
@@ -93,7 +93,7 @@ public class Lic1Test {
                         new Point(0.5, 0.5),
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = Math.sqrt(2)/2;
+        params.setRADIUS1(Math.sqrt(2)/2);
         assertFalse(Lic1.evaluate(points, params));
     }
      /**
@@ -114,7 +114,7 @@ public class Lic1Test {
                         new Point(2, 0),
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = 0.5;
+        params.setRADIUS1(0.5);
         assertTrue(Lic1.evaluate(points, params));
     }
 }

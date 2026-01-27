@@ -20,7 +20,7 @@ public class Lic2Test {
     @Test
     void GreaterAngleConsecutive(){
         Parameters p = new Parameters();
-        p.EPSILON = 0.0;
+        p.setEPSILON(0.0);
 
         Point[] points = {
             new Point(0.0, 0.0),
@@ -42,7 +42,7 @@ public class Lic2Test {
     @Test
     void LesserAngleConsecutive(){
         Parameters p = new Parameters();
-        p.EPSILON = 1.0;
+        p.setEPSILON(1.0);
 
         Point[] points = {
             new Point(0.0, 0.0),
@@ -64,7 +64,7 @@ public class Lic2Test {
     @Test
     void NoConsecutiveAngle(){
         Parameters p = new Parameters();
-        p.EPSILON = 2.0;
+        p.setEPSILON(2.0);
 
         Point[] points = {
             new Point(0.0, 0.0),

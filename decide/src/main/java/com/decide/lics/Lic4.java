@@ -37,15 +37,15 @@ public final class Lic4 implements Lic {
             return false; // Condition is NOT met if there are fewer than 2 points
         }
         // Check all sets of Q_PTS consecutive points
-        for (int i = 0; i < n - params.Q_PTS; i++){
+        for (int i = 0; i < n - params.getQ_PTS(); i++){
             //Track number of unique quadrants in list l
             ArrayList<Integer> l = new ArrayList<>(); 
-            for (int j = 0; j < params.Q_PTS; j++){
+            for (int j = 0; j < params.getQ_PTS(); j++){
                 int quadrant = decideQuad(points[j]);
                 if(!l.contains(quadrant)){
                     l.add(quadrant);
                     //Determine the number of unique quadrants using .size()
-                    if(l.size() > params.QUADS){
+                    if(l.size() > params.getQUADS()){
                         return true;
                     }
                 }

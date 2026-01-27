@@ -25,9 +25,9 @@ public class Lic8Test {
                         new Point(0, 4)
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = 1;
-        params.A_PTS = 1;
-        params.B_PTS = 1;
+        params.setRADIUS1(1);
+        params.setA_PTS(1);
+        params.setB_PTS(1);
         assertFalse(Lic8.evaluate(points, params));
     }
 
@@ -52,9 +52,9 @@ public class Lic8Test {
                         new Point(10, 0) // p3
         };
         Parameters params = new Parameters();
-        params.RADIUS1 = 4;
-        params.A_PTS = 1;
-        params.B_PTS = 1;
+        params.setRADIUS1(4);
+        params.setA_PTS(1);
+        params.setB_PTS(1);
         assertTrue(Lic8.evaluate(points, params));
     }
      /**
@@ -79,9 +79,9 @@ public class Lic8Test {
             new Point(0, 1)    // p3
         };
         Parameters params = new Parameters();
-        params.A_PTS = 1;
-        params.B_PTS = 1;
-        params.RADIUS1 = 1;
+        params.setA_PTS(1);
+        params.setB_PTS(1);
+        params.setRADIUS1(1);
 
         assertFalse(Lic8.evaluate(points, params));
 }

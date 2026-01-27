@@ -14,9 +14,9 @@ public final class Lic9 implements Lic {
         // Requirement: NUMPOINTS < 5 -> return false
         if (n < 5) { return false; }
 
-        int cPts = params.C_PTS;
-        int dPts = params.D_PTS;
-        double epsilon = params.EPSILON;
+        int cPts = params.getC_PTS();
+        int dPts = params.getD_PTS();
+        double epsilon = params.getEPSILON();
 
         // Defensive check
         if (cPts < 1 || dPts < 1) {
@@ -39,8 +39,8 @@ public final class Lic9 implements Lic {
             // Calculate the angle at point B formed by points A and C
             try {
                 angle = MathHelp.angleRadians(
-                    a.x(), a.y(),
-                    b.x(), b.y(),
+                    a.x(), a.y(), 
+                    b.x(), b.y(), 
                     c.x(), c.y()
                 );
             } catch (IllegalArgumentException e) {

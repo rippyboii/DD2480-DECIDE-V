@@ -20,7 +20,7 @@ public class Lic3Test {
     @Test
     void GreaterAreaConsecutive(){
         Parameters p = new Parameters();
-        p.AREA1 = 1.0;
+        p.setAREA1(1.0);
 
         Point[] points = {
             new Point(0.0, 0.0),
@@ -42,7 +42,7 @@ public class Lic3Test {
     @Test
     void LesserAreaConsecutive(){
         Parameters p = new Parameters();
-        p.AREA1 = 1.0;
+        p.setAREA1(1.0);
 
         Point[] points = {
             new Point(0.0, 0.0),
@@ -64,7 +64,7 @@ public class Lic3Test {
     @Test
     void EqualAreaConsecutive(){
         Parameters p = new Parameters();
-        p.AREA1 = 2.0;
+        p.setAREA1(2.0);
 
         Point[] points = {
             new Point(0.0, 0.0),
