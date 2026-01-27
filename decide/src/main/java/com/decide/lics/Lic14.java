@@ -12,10 +12,10 @@ public final class Lic14 implements Lic {
         // Requirement: NUMPOINTS < 5 -> return false
         if (n < 5) { return false; }
 
-        int ePts = params.E_PTS;
-        int fPts = params.F_PTS;
-        double area1 = params.AREA1;
-        double area2 = params.AREA2;
+        int ePts = params.getE_PTS();
+        int fPts = params.getF_PTS();
+        double area1 = params.getAREA1();
+        double area2 = params.getAREA2();
 
         boolean condition1Satisfied = false;
         boolean condition2Satisfied = false;

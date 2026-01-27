@@ -16,8 +16,8 @@ public final class Lic6 implements Lic {
         }
 
         int n = points.length;
-        int N_PTS = params.N_PTS;
-        double DIST = params.DIST;
+        int N_PTS = params.getN_PTS();
+        double DIST = params.getDIST();
 
         if (n < N_PTS) {
             return false;

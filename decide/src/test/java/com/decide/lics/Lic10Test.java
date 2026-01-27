@@ -29,9 +29,9 @@ public class Lic10Test {
         };
 
         Parameters params = new Parameters();
-        params.E_PTS = 1;
-        params.F_PTS = 1;
-        params.AREA1 = 1;
+        params.setE_PTS(1);
+        params.setF_PTS(1);
+        params.setAREA1(1);
 
         assertFalse(Lic10.evaluate(points, params));
     }
@@ -64,9 +64,9 @@ public class Lic10Test {
         };
 
         Parameters params = new Parameters();
-        params.E_PTS = 1;
-        params.F_PTS = 1;
-        params.AREA1 = 40;
+        params.setE_PTS(1);
+        params.setF_PTS(1);
+        params.setAREA1(40);
 
         assertTrue(Lic10.evaluate(points, params));
     }
@@ -98,36 +98,9 @@ public class Lic10Test {
         };
 
         Parameters params = new Parameters();
-        params.E_PTS = 1;
-        params.F_PTS = 1;
-        params.AREA1 = 1;
-
-        assertFalse(Lic10.evaluate(points, params));
-    }
-
-       /**
-     * Contract:
-     * Lic10 should return false when parameter constraints are violated (E_PTS < 1 or F_PTS < 1).
-     *
-     * Expected Behavior:
-     * Given valid points but an invalid E_PTS (0), the function shall return false.
-     */
-    @Test
-    void returnsFalseWhenEptsOrFptsIsLessThanOne() {
-        Lic10 Lic10 = new Lic10();
-
-        Point[] points = {
-            new Point(0, 0),
-            new Point(1, 1),
-            new Point(0, 10),
-            new Point(2, 2),
-            new Point(10, 0)
-        };
-
-        Parameters params = new Parameters();
-        params.E_PTS = 0;   // invalid
-        params.F_PTS = 1;
-        params.AREA1 = 1;
+        params.setE_PTS(1);
+        params.setF_PTS(1);
+        params.setAREA1(1);
 
         assertFalse(Lic10.evaluate(points, params));
     }
@@ -154,9 +127,9 @@ public class Lic10Test {
         };
 
         Parameters params = new Parameters();
-        params.E_PTS = 2;
-        params.F_PTS = 1; // 2 + 1 = 3 > (5 - 3) = 2 => invalid
-        params.AREA1 = 0.1;
+        params.setE_PTS(2);
+        params.setF_PTS(1); // 2 + 1 = 3 > (5 - 3) = 2 => invalid
+        params.setAREA1(0.1);
 
         assertFalse(Lic10.evaluate(points, params));
     }

@@ -11,7 +11,7 @@ public class Lic0Test {
 
     private static Parameters paramsWithLength1(double length1) {
         Parameters p = new Parameters();
-        p.LENGTH1 = length1;
+        p.setLENGTH1(length1);
         return p;
     }
 
