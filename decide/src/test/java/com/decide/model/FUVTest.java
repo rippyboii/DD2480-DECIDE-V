@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-public class FUVTest {
+public class FuvTest {
     @Test
     public void testNoTrueRowsFUV() {
         /**
@@ -24,13 +24,12 @@ public class FUVTest {
             {true, true, true},
             {true, false, false},
             {true, false, false}};
-        FUV fuv = new FUV(puv, pum);
-        fuv.calculate_FUV();
+        Fuv fuv = new Fuv(puv, pum);
+        boolean[] fuv_output = fuv.calculateFuv();
 
-        assertTrue(fuv.fuv[0]);
-        assertFalse(fuv.fuv[1]);
-        assertFalse(fuv.fuv[2]);
-        
+        assertTrue(fuv_output[0]);
+        assertFalse(fuv_output[1]);
+        assertFalse(fuv_output[2]);
     }
     
     @Test
@@ -53,13 +52,12 @@ public class FUVTest {
             {true, true, true},
             {true, true, true},
             {true, true, true}};
-        FUV fuv = new FUV(puv, pum);
-        fuv.calculate_FUV();
+        Fuv fuv = new Fuv(puv, pum);
+        boolean[] fuv_output = fuv.calculateFuv();
 
-        assertTrue(fuv.fuv[0]);
-        assertTrue(fuv.fuv[1]);
-        assertTrue(fuv.fuv[2]);
-
+        assertTrue(fuv_output[0]);
+        assertTrue(fuv_output[1]);
+        assertTrue(fuv_output[2]);
         
     } 
 
@@ -83,12 +81,12 @@ public class FUVTest {
             {false, false, false},
             {false, false, false},
             {false, false, false}};
-        FUV fuv = new FUV(puv, pum);
-        fuv.calculate_FUV();
+        Fuv fuv = new Fuv(puv, pum);
+        boolean[] fuv_output = fuv.calculateFuv();
 
-        assertTrue(fuv.fuv[0]);
-        assertTrue(fuv.fuv[1]);
-        assertTrue(fuv.fuv[2]);
+        assertTrue(fuv_output[0]);
+        assertTrue(fuv_output[1]);
+        assertTrue(fuv_output[2]);
         
     } 
 
@@ -112,12 +110,11 @@ public class FUVTest {
             {false, true, true},
             {true, false, true},
             {true, true, false}};
-        FUV fuv = new FUV(puv, pum);
-        fuv.calculate_FUV();
+        Fuv fuv = new Fuv(puv, pum);
+        boolean[] fuv_output = fuv.calculateFuv();
 
-        assertTrue(fuv.fuv[0]);
-        assertTrue(fuv.fuv[1]);
-        assertTrue(fuv.fuv[2]);
-        
+        assertTrue(fuv_output[0]);
+        assertTrue(fuv_output[1]);
+        assertTrue(fuv_output[2]);
     } 
 }

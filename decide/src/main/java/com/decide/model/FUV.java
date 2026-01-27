@@ -1,16 +1,15 @@
 package com.decide.model;
 
-public class FUV {
+public class Fuv {
     boolean [] puv;
     boolean [][] pum;
-    boolean [] fuv;
 
-    public FUV(boolean [] puv, boolean [][] pum){
+    public Fuv(boolean [] puv, boolean [][] pum){
         this.puv = puv;
         this.pum = pum;
     }
 
-    public void calculate_FUV(){
+    public boolean[] calculateFuv(){
 
         int n = this.puv.length;
         boolean [] fuv = new boolean [n];
@@ -29,6 +28,6 @@ public class FUV {
                 fuv[i] = true;
             }
         }
-        this.fuv = fuv;
+        return fuv;
     }
 }
