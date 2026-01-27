@@ -1,3 +1,5 @@
+[![Maven Build and Test](https://github.com/rippyboii/DD2480-DECIDE-V/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/rippyboii/DD2480-DECIDE-V/actions/workflows/maven-publish.yml)
+
 # DD2480-DECIDE-V
 This is group V
 
