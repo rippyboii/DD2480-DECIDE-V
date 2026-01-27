@@ -11,10 +11,10 @@ import com.decide.model.Point;
 public class Lic13Test {
     /**
      * Contract:
-     * The Lic13 requires parameters A_PTS, B_PTS to be greater or eqaul to 1, and their sum to be less or equal to number of points minus 3.
+     * The Lic13 requires parameters A_PTS, B_PTS to be greater or eqaul to 1, and their sum to be less 
+     * or equal to number of points minus 3. ParameterTest ensures the lower bounds of A_PTS and B_PTS.
      * 
      * Expected behavior:
-     * When supplied with parameter A_PTS = 0, the function shall throw Illegal Agument Exception.
      * For number of point equal to 5, and A_PTS = 2, B_PTS = 2, the function shall throw Illegal Agument Exception.
      */
     @Test
@@ -27,17 +27,11 @@ public class Lic13Test {
                         new Point(3, 2)
         };
         Parameters params = new Parameters();
-        params.setA_PTS(0);
+        params.setA_PTS(2);
         params.setB_PTS(2);
         params.setRADIUS1(1);
         params.setRADIUS2(1);
-        // A_PTS is 0, shall throw Illegal Argument
-        assertThrows(IllegalArgumentException.class, 
-            () -> {
-            lic13.evaluate(points, params);
-        });
-        params.setA_PTS(2);
-        params.setB_PTS(2);
+        // A_PTS + B_PTS is greater than NUMPOINTS - 3, shall throw Illegal Argument
         assertThrows(IllegalArgumentException.class, 
             () -> {
             lic13.evaluate(points, params);

@@ -30,7 +30,7 @@ public final class Lic13 implements Lic {
             return false;
         }
         // check if the parameters are valid
-        if (params.getA_PTS() < 1 || params.getB_PTS() < 1 || (params.getA_PTS() + params.getB_PTS() > nPoints-3)) {
+        if (params.getA_PTS() + params.getB_PTS() > nPoints-3) {
             throw new IllegalArgumentException();
         }
         double rad;
