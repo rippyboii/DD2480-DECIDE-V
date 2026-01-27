@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-public class CMVTest {
+public class CmvTest {
     /**
      * Generates a specified number of test points
      * @param numPoints The number of points to be specified
@@ -24,25 +24,25 @@ public class CMVTest {
      */
     private Parameters sampleParameters() {
         Parameters params = new Parameters();
-        params.LENGTH1= 1;
-        params.RADIUS1= 3;
-        params.EPSILON = 10e-5;
-        params.AREA1 = 3.5;
-        params.Q_PTS = 5;
-        params.QUADS = 2;
-        params.DIST = 8;
-        params.N_PTS = 3;
-        params.K_PTS = 3;
-        params.A_PTS = 1;
-        params.B_PTS = 1;
-        params.C_PTS = 1;
-        params.D_PTS = 1;
-        params.E_PTS = 1;
-        params.F_PTS = 1;
-        params.G_PTS = 2;
-        params.LENGTH2= 2;
-        params.RADIUS2= 1.5;
-        params.AREA2 = 2.3;
+        params.setLENGTH1(1);
+        params.setRADIUS1(3);
+        params.setEPSILON(10e-5);
+        params.setAREA1(3.5);
+        params.setQ_PTS(5);
+        params.setQUADS(2);
+        params.setDIST(8);
+        params.setN_PTS(3);
+        params.setK_PTS(3);
+        params.setA_PTS(1);
+        params.setB_PTS(1);
+        params.setC_PTS(1);
+        params.setD_PTS(1);
+        params.setE_PTS(1);
+        params.setF_PTS(1);
+        params.setG_PTS(2);
+        params.setLENGTH2(2);
+        params.setRADIUS2(1.5);
+        params.setAREA2(2.3);
         return params;
     }
 
@@ -58,7 +58,7 @@ public class CMVTest {
     @Test
     void testEvaluation() {
         Point[] points = generatePoints(10);
-        CMV cmv = new CMV();
+        Cmv cmv = new Cmv();
         Parameters params = sampleParameters();
         boolean[] result = cmv.evaluate(points, params);
         assertNotNull(result);
