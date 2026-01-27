@@ -25,12 +25,12 @@ public final class Lic7 implements Lic {
         if (n < 3) {
             return false; // Condition is NOT met if there are fewer than 3 points
         }
-        else if (params.K_PTS > n - 2 || params.K_PTS < 1){
+        else if (params.getK_PTS() > n - 2 || params.getK_PTS() < 1){
             return false; // Illegal K_PTS
         }
         
-        for (int i = 0; i < n - params.K_PTS - 1; i++){
-            if (MathHelp.calculateDistance(points[i], points[i + params.K_PTS + 1]) > params.LENGTH1){
+        for (int i = 0; i < n - params.getK_PTS() - 1; i++){
+            if (MathHelp.calculateDistance(points[i], points[i + params.getK_PTS() + 1]) > params.getLENGTH1()){
                 return true;
             }
         }

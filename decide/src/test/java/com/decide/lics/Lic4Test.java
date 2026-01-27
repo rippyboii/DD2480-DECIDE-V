@@ -20,8 +20,8 @@ public class Lic4Test {
     @Test
     void MoreQuadsConsecutive(){
         Parameters p = new Parameters();
-        p.QUADS = 2;
-        p.Q_PTS = 3;
+        p.setQUADS(2);
+        p.setQ_PTS(3);
 
         Point[] points = {
             new Point(0.0, 0.0),
@@ -45,8 +45,8 @@ public class Lic4Test {
     @Test
     void LessQuadsConsecutive(){
         Parameters p = new Parameters();
-        p.QUADS = 3;
-        p.Q_PTS = 3;
+        p.setQUADS(3);
+        p.setQ_PTS(3);
 
         Point[] points = {
             new Point(0.0, 0.0),
@@ -70,8 +70,8 @@ public class Lic4Test {
     @Test
     void MoreQuadsNonConsecutive(){
         Parameters p = new Parameters();
-        p.QUADS = 2;
-        p.Q_PTS = 3;
+        p.setQUADS(2);
+        p.setQ_PTS(3);
 
         Point[] points = {
             new Point(0.0, -1.0),

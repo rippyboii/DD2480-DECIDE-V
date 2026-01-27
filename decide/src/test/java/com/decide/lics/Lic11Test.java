@@ -24,7 +24,7 @@ public class Lic11Test {
             new Point(1, 1)
         };
         Parameters params = new Parameters();
-        params.G_PTS = 1;
+        params.setG_PTS(1);
 
         assertFalse(lic11.evaluate(points, params));
     }
@@ -49,7 +49,7 @@ public class Lic11Test {
             new Point(3, 3)
         };
         Parameters params = new Parameters();
-        params.G_PTS = 1;
+        params.setG_PTS(1);
 
         assertFalse(lic11.evaluate(points, params));
     }
@@ -71,7 +71,7 @@ public class Lic11Test {
             new Point(5, 2)
         };
         Parameters params = new Parameters();
-        params.G_PTS = 1;
+        params.setG_PTS(1);
 
         assertFalse(lic11.evaluate(points, params));
     }
@@ -94,7 +94,7 @@ public class Lic11Test {
             new Point(3, 3)
         };
         Parameters params = new Parameters();
-        params.G_PTS = 2;
+        params.setG_PTS(2);
 
         assertTrue(lic11.evaluate(points, params));
     }
