@@ -25,10 +25,19 @@ java -version
 This project uses Maven Wrapper, no local Maven installation is required.
 
 ## Build and Run
+
 ```bash
 ./mvnw clean test
 ./mvnw exec:java
 ```
+### Test your parameters:
+
+- To run DECIDE with custom inputs, edit    `decide/src/main/java/com/decide/Main.java` and update:
+    - `Point[] points`
+    - `Parameters parameters`
+    - `Connector[][] lcm`
+    - `boolean[] puv`
+
 
 ## Project Structure
 - `decide/src/main/java/com/decide/`: Contains all implementation and the `Main.java` entry point.
@@ -66,3 +75,6 @@ We introduced a GitHub Actions CI pipeline that builds the project and runs all 
 
 > **Two-Stage Branch Protection (dev -> main):**  
 We implemented a two-branch workflow with protection rules on both `dev` and `main`. Feature and fix branches are merged into `dev` via pull requests requiring at least two approvals and a passing CI check. The `main` branch is reserved for stable, reviewed changes. This setup keeps `main` consistently stable while allowing collaborative development on `dev`.
+
+> **Conventional Commits & Consistent Naming:**  
+We followed the Conventional Commits specification for commit messages throughout the project (e.g., `feat:`, `fix:`, `refactor:`, `test:`, `docs:`), making the change history easy to scan and review. In addition, we maintained consistent naming conventions across the codebase (classes, methods, variables, and packages) to keep the project readable and predictable for all team members.
