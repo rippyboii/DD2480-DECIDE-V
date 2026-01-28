@@ -5,6 +5,25 @@ import com.decide.model.Parameters;
 import com.decide.model.Point;
 
 public final class Lic14 implements Lic {
+
+    public Lic14() {}
+
+    /**
+     * Checks condition for LIC14
+     * 
+     * There exists at least one set of three data points, separated by exactly E_PTS and F_PTS 
+     * consecutive intervening points, respectively, that are the vertices of a triangle with area 
+     * greater than AREA1. In addition, there exist three data points (which can be the same or 
+     * different from the three data points just mentioned) separated by exactly E_PTS and F_PTS 
+     * consecutive intervening points, respectively, that are the vertices of a triangle with area 
+     * less than AREA2. Both parts must be true for the LIC to be true. The condition is not met 
+     * when NUMPOINTS < 5.
+     * 0 ≤ AREA2
+     * 
+     * @param points The set of points
+     * @param params The parameters
+     * @return true, if the condition is met, false otherwise
+     */
     @Override
     public boolean evaluate(Point[] points, Parameters params) {
         int n = points.length;

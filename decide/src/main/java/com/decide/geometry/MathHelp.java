@@ -35,7 +35,17 @@ public class MathHelp {
     }
 
 
-
+    /**
+     * Calculates the angle (in radians) formed at vertex B by points A and C.
+     * @param ax x-coordinate of point A
+     * @param ay y-coordinate of point A
+     * @param bx x-coordinate of point B (vertex)
+     * @param by y-coordinate of point B (vertex)
+     * @param cx x-coordinate of point C
+     * @param cy y-coordinate of point C
+     * @return the angle ABC in radians
+     * @throws IllegalArgumentException if any of the vectors has zero length
+     */
     public static double angleRadians(
             double ax, double ay,
             double bx, double by,
@@ -105,7 +115,6 @@ public class MathHelp {
         return radius;
     }
 
-
     /**
      * Calculates the circumcenter of a triangle given by 3 points.
      * 
@@ -164,8 +173,6 @@ public class MathHelp {
         };
         return result;
     }
-
-
 
 /**
  * Calculates the shortest (perpendicular) distance from a point P to the infinite line

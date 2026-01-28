@@ -5,6 +5,9 @@ import com.decide.lics.*;
 public class Cmv {
     private Lic[] licList;
 
+    /**
+     * Constructor for Cmv class
+     */
     public Cmv() {
         this.licList = new Lic[] {  new Lic0(),
                                     new Lic1(),
@@ -24,6 +27,12 @@ public class Cmv {
         };
     }
 
+    /**
+     * Evaluates all LICs and returns the CMV array.
+     * @param points The set of points
+     * @param params The parameters
+     * @return The CMV array
+     */
     public boolean[] evaluate(Point[] points, Parameters params) {
         boolean[] cmv = new boolean[this.licList.length];
         for (int i = 0; i < cmv.length; i++) {

@@ -6,7 +6,7 @@ import com.decide.model.Point;
 
 /**
  * LIC7:
- * There exists at least one set of two data points separated by exactly K PTS consecutive 
+ * There exists at least one set of two data points separated by exactly K_PTS consecutive 
  * intervening points that are a distance greater than the length, LENGTH1, apart.
  */
 public final class Lic7 implements Lic {
@@ -14,6 +14,16 @@ public final class Lic7 implements Lic {
     public Lic7() {
     }
 
+    /**
+     * Checks condition for LIC7
+     * 
+     * There exists at least one set of two data points separated by exactly K_PTS consecutive intervening points that are a distance greater than the length, LENGTH1, apart. The condition
+     * is not met when NUMPOINTS < 3. 1 ≤ K_PTS ≤ (NUMPOINTS − 2)
+     * 
+     * @param points The set of points
+     * @param params The parameters
+     * @return true, if the condition is met, false otherwise
+     */
     @Override
     public boolean evaluate(Point[] points, Parameters params) {
         if (points == null || params == null) {

@@ -16,7 +16,7 @@ public final class Lic1 implements Lic {
      * 
      * @param points The set of points
      * @param params The parameters
-     * @return true, if there e
+     * @return true, if the condition is met, false otherwise
      */
     @Override 
     public boolean evaluate(Point[] points, Parameters params) {
