@@ -49,3 +49,6 @@ Unit tests are implemented using JUnit 5. Each LIC and major component has corre
 
 Carl Isaksson: 
 - Geometry helper functions, LICs 8,10, documenting way of working (Essence), License implementation.
+
+> Josef Kahoun
+- Implemented CMV evaluation, shared LIC interface, LICs 1, 12, 13, and related geometrical helper functions.
