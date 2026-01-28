@@ -41,19 +41,8 @@ public class Main {
 
     
 
-        Cmv cmv = new Cmv();
-        boolean [] cmvResult =cmv.evaluate(points, parameters);
-        PUM pum = new PUM(lcm, cmvResult);
-        pum.calculate_PUM();
-        Fuv fuv = new Fuv(puv, pum.getPUM());
-        boolean [] fuvResult = fuv.calculateFuv();
-        boolean launchDecision = true;
-        for (boolean fuvValue : fuvResult) {
-            if (!fuvValue) {
-                launchDecision = false;
-                break;
-            }
-        }
+        Demo demo = new Demo(points, parameters, lcm, puv);
+        boolean launchDecision = demo.runDemo();
         if(launchDecision) {
             System.out.println("YES");
         } else {
