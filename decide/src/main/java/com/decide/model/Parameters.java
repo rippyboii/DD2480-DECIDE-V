@@ -21,6 +21,29 @@ public class Parameters {
     private double RADIUS2;
     private double AREA2;
 
+    public Parameters() {
+        this.setLENGTH1(0.0);
+        this.setLENGTH2(0.0);
+        this.setRADIUS1(0.0);
+        this.setRADIUS2(0.0);
+        this.setEPSILON(0.0);
+        this.setAREA1(0.0);
+        this.setAREA2(0.0);
+        this.setDIST(0.0);
+
+        this.setQ_PTS(2);
+        this.setQUADS(1);
+        this.setN_PTS(3);
+        this.setK_PTS(1);
+        this.setA_PTS(1);
+        this.setB_PTS(1);
+        this.setC_PTS(1);
+        this.setD_PTS(1);
+        this.setE_PTS(1);
+        this.setF_PTS(1);
+        this.setG_PTS(1);
+    }
+
     public double getLENGTH1() {
         return this.LENGTH1;
     }
