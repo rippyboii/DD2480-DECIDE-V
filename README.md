@@ -1,7 +1,18 @@
 [![Maven Build and Test](https://github.com/rippyboii/DD2480-DECIDE-V/actions/workflows/maven-publish.yml/badge.svg)](https://github.com/rippyboii/DD2480-DECIDE-V/actions/workflows/maven-publish.yml)
 
 # DD2480-DECIDE-V
-This is group V
+
+## Summary
+DECIDE is a Java implementation of a decision algorithm that analyzes sequences of 2D tracking data to determine whether a hypothetical missile launcher should fire an interceptor. It evaluates a set of predefined geometric conditions (15 LICs) and computes a final Boolean decision by combining them according to logical rules defined in the DECIDE specification.
+
+## Description
+This project implements the `DECIDE()` function from the Launch Interceptor Program specifications by J. C. Knight and N. G. Leveson, (adapted by John Regehr and Martin Monperrus). Given up to 100 planar radar tracking points, the system evaluates 15 *Launch Interceptor Conditions* (*LICs*) and stores the result in the *Conditions Met Vector* (*CMV*).
+
+The CMV is then combined with the *Logical Connector Matrix* (*LCM*) to produce the *Preliminary Unlocking Matrix* (*PUM*), which represents how LICs must be logically paired using `ANDD`, `ORR`, or `NOTUSED`.
+
+Finally, the *Preliminary Unlocking Vector* (*PUV*) determines which LICs are relevant for the current launch decision, producing the *Final Unlocking Vector* (*FUV*) that indicates whether to launch or not. The launch signal to `LAUNCH` is issued if and only if all elements of the FUV are true.
+
+This implementation follows the required parameter constraints and computation rules defined in the DECIDE specification.
 
 ## Requirements
 - Java 21 (JDK)
