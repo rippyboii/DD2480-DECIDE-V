@@ -26,6 +26,6 @@ This project uses Maven Wrapper, no local Maven installation is required.
 
 ## Build and Run
 ```bash
-./mvnw compile clean test
-./mvnw compile exec:java
+./mvnw clean test
+./mvnw exec:java
 ```
