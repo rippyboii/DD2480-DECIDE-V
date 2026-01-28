@@ -12,23 +12,12 @@ public class Main {
         new Point(-3.0, 3.0)
         };
         boolean[] puv = {true, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
-        Connector[][] lcm = {
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND},
-        {Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND, Connector.AND}
-        };
+        Connector[][] lcm = new Connector[15][15];
+        for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 15; j++) {
+            lcm[i][j] = Connector.AND; 
+        }
+        }
         Parameters parameters = new Parameters();
         parameters.setLENGTH1(1.0);
         parameters.setRADIUS1(5.5);
