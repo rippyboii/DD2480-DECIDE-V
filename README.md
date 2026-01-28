@@ -41,8 +41,17 @@ This project uses Maven Wrapper, no local Maven installation is required.
 Unit tests are implemented using JUnit 5. Each LIC and major component has corresponding test cases in the `decide/src/test/java/com/decide/` directory. There are always at least one positive and one negative test case for each class.
 
 ## Statement of Contributions
+### Individual Contribution:
 > Fabian W: 
 - Implemented functions for PUM, FUV, Demo, and LIC 1-3.
 
 > Apeel Subedi
 - Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
+
+### Team Achievement
+
+> **Continuous Integration & Build Status Badge:**  
+We introduced a GitHub Actions CI pipeline that builds the project and runs all unit test on every push and pull request (see `.github/workflows/maven-publish.yml`). The badge at the top of this README reflects the latest CI status.
+
+> **Two-Stage Branch Protection (dev -> main):**  
+We implemented a two-branch workflow with protection rules on both `dev` and `main`. Feature and fix branches are merged into `dev` via pull requests requiring at least two approvals and a passing CI check. The `main` branch is reserved for stable, reviewed changes. This setup keeps `main` consistently stable while allowing collaborative development on `dev`.
