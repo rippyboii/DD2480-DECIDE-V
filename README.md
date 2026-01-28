@@ -57,7 +57,7 @@ Unit tests are implemented using JUnit 5. Each LIC and major component has corre
 > Implemented CMV evaluation, shared LIC interface, LICs 1, 12, 13, and related geometrical helper functions.
 
 #### Alexander Runebou:
-> - Initialized maven setup, implemented core classes like Parameters, LICs 5, 9, 14, refactoring, documentation.
+>  Initialized maven setup, implemented core classes like Parameters, LICs 5, 9, 14, refactoring, documentation.
 
 ### Team Achievement
 
