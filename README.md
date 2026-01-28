@@ -36,3 +36,6 @@ This project uses Maven Wrapper, no local Maven installation is required.
 - `decide/src/main/java/com/decide/geometry/`: Contains geometric helper functions.
 - `decide/src/main/java/com/decide/lics/`: Contains all Launch Interceptor Conditions (LICs) implementations.
 - `decide/src/test/java/com/decide/`: Contains unit tests for the implementation
+
+## Testing
+Unit tests are implemented using JUnit 5. Each LIC and major component has corresponding test cases in the `decide/src/test/java/com/decide/` directory. There are always at least one positive and one negative test case for each class.
