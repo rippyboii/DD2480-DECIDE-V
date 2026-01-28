@@ -18,9 +18,9 @@ public class Demo {
     public boolean runDemo(){
         Cmv cmv = new Cmv();
         boolean [] cmvResult =cmv.evaluate(this.points, this.parameters);
-        PUM pum = new PUM(this.lcm, cmvResult);
-        pum.calculate_PUM();
-        Fuv fuv = new Fuv(this.puv, pum.getPUM());
+        Pum pum = new Pum(this.lcm, cmvResult);
+        boolean [][] pumResult = pum.calculatePum();
+        Fuv fuv = new Fuv(this.puv, pumResult);
         boolean [] fuvResult = fuv.calculateFuv();
         boolean launchDecision = true;
         for (boolean fuvValue : fuvResult) {

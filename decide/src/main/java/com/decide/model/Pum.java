@@ -1,11 +1,10 @@
 package com.decide.model;
 
-public class PUM {
-    private boolean[][] pum;
+public class Pum {
     private Connector[][] lcm;
     private boolean [] cmv;
 
-    public PUM(Connector[][] lcm, boolean []cmv) {
+    public Pum(Connector[][] lcm, boolean []cmv) {
         this.lcm = lcm;
         this.cmv = cmv;
 
@@ -14,7 +13,7 @@ public class PUM {
     /**
      * Calculates the PUM based on the CMV and LCM
      */
-    public void calculate_PUM(){
+    public boolean[][] calculatePum(){
         int n = cmv.length;
         boolean [][] pum = new boolean [n][n];
 
@@ -49,15 +48,8 @@ public class PUM {
                 }
             }
         }
-        this.pum = pum;
+        return pum;
 
     }
 
-    /**
-     * Get the PUM matrix
-     * @return PUM matrix
-     */
-    public boolean [][] getPUM(){
-        return this.pum;
-    }
 }
