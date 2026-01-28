@@ -2,7 +2,6 @@ package com.decide.geometry;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import org.junit.jupiter.api.Test;
 
 import com.decide.model.Point;
@@ -259,7 +258,6 @@ public class MathHelpTest {
         void testAngle() {
             double angle = MathHelp.angleRadians(1, 0, 0, 0, 0, 1);
             assertEquals(Math.PI / 2.0, angle, 1e-12); 
-            System.out.println("Angle ABC: " + angle);
         }
 
     /**
