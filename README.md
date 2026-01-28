@@ -42,11 +42,21 @@ Unit tests are implemented using JUnit 5. Each LIC and major component has corre
 
 ## Statement of Contributions
 ### Individual Contribution:
-> Fabian W: 
-- Implemented functions for PUM, FUV, Demo, and LIC 1-3.
+#### Fabian W: 
+> Implemented functions for PUM, FUV, Demo, and LIC 1-3.
 
-> Apeel Subedi
-- Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
+#### Apeel Subedi
+> Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
+
+
+#### Carl Isaksson: 
+> Geometry helper functions, LICs 8,10, documenting way of working (Essence), License implementation.
+
+#### Josef Kahoun
+> Implemented CMV evaluation, shared LIC interface, LICs 1, 12, 13, and related geometrical helper functions.
+
+#### Alexander Runebou:
+> - Initialized maven setup, implemented core classes like Parameters, LICs 5, 9, 14, refactoring, documentation.
 
 ### Team Achievement
 
