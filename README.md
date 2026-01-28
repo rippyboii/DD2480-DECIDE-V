@@ -41,4 +41,8 @@ This project uses Maven Wrapper, no local Maven installation is required.
 Unit tests are implemented using JUnit 5. Each LIC and major component has corresponding test cases in the `decide/src/test/java/com/decide/` directory. There are always at least one positive and one negative test case for each class.
 
 ## Statement of Contributions
-- Fabian W: Implemented functions for PUM, FUV, Demo, and LIC 1-3.
+> Fabian W: 
+- Implemented functions for PUM, FUV, Demo, and LIC 1-3.
+
+> Apeel Subedi
+- Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
