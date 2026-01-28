@@ -52,9 +52,11 @@ Unit tests are implemented using JUnit 5. Each LIC and major component has corre
     - `boolean[] puv`
 
 ## Statement of Contributions
+
 ### Individual Contribution:
 #### Dev. Fabian W: 
-> Implemented functions for PUM, FUV, Demo, and LIC 1-3.
+> Implemented functions for PUM, FUV, Demo, and LIC 2-4,7.
+
 
 #### Dev. Apeel Subedi
 > Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
