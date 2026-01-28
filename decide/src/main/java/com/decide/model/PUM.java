@@ -10,6 +10,10 @@ public class PUM {
         this.cmv = cmv;
 
     }
+
+    /**
+     * Calculates the PUM based on the CMV and LCM
+     */
     public void calculate_PUM(){
         int n = cmv.length;
         boolean [][] pum = new boolean [n][n];
@@ -48,6 +52,11 @@ public class PUM {
         this.pum = pum;
 
     }
+
+    /**
+     * Get the PUM matrix
+     * @return PUM matrix
+     */
     public boolean [][] getPUM(){
         return this.pum;
     }

@@ -9,6 +9,10 @@ public class Fuv {
         this.pum = pum;
     }
 
+    /**
+     * Calculates the FUV based on the PUV and PUM
+     * @return The FUV array
+     */
     public boolean[] calculateFuv(){
 
         int n = this.puv.length;
