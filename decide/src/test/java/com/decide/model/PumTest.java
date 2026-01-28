@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 
 
 
-public class PUMTest {
+public class PumTest {
     @Test
-    public void testPUMInitialization() {
+    public void testPumInitialization() {
         /**
          * Contract:
          * The testPumInitialization constructor should create a PUM object with the provided LCM and CMV.
@@ -25,19 +25,19 @@ public class PUMTest {
         //Dummy cmv
         boolean [] cmv = new boolean[]{true, false, false};
 
-        PUM pum = new PUM(lcm, cmv);
+        Pum pum = new Pum(lcm, cmv);
 
         //Expected PUM
         boolean [][] true_pum = new boolean[][]{
             {true, true, true},
             {true, false, false},
             {true, false, false}};
-        pum.calculate_PUM();
+        boolean [][] pumResult = pum.calculatePum();
         
         //Compare boolean arrays
         for (int i = 0; i < true_pum.length; i++) {
             for (int j = i; j < true_pum.length; j++) {
-                assertEquals(true_pum[i][j], pum.getPUM()[i][j], "Mismatch at position (" + i + "," + j + ")");
+                assertEquals(true_pum[i][j], pumResult[i][j], "Mismatch at position (" + i + "," + j + ")");
             }
         }
     }
