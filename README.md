@@ -29,3 +29,10 @@ This project uses Maven Wrapper, no local Maven installation is required.
 ./mvnw clean test
 ./mvnw exec:java
 ```
+
+## Project Structure
+- `decide/src/main/java/com/decide/`: Contains all implementation and the `Main.java` entry point.
+- `decide/src/main/java/com/decide/model/`: Contains the core data models and logical components.
+- `decide/src/main/java/com/decide/geometry/`: Contains geometric helper functions.
+- `decide/src/main/java/com/decide/lics/`: Contains all Launch Interceptor Conditions (LICs) implementations.
+- `decide/src/test/java/com/decide/`: Contains unit tests for the implementation
