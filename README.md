@@ -39,3 +39,6 @@ This project uses Maven Wrapper, no local Maven installation is required.
 
 ## Testing
 Unit tests are implemented using JUnit 5. Each LIC and major component has corresponding test cases in the `decide/src/test/java/com/decide/` directory. There are always at least one positive and one negative test case for each class.
+
+## Statement of Contributions
+- Fabian W: Implemented functions for PUM, FUV, Demo, and LIC 1-3.
