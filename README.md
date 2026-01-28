@@ -46,3 +46,6 @@ Unit tests are implemented using JUnit 5. Each LIC and major component has corre
 
 > Apeel Subedi
 - Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
+
+Carl Isaksson: 
+- Geometry helper functions, LICs 8,10, documenting way of working (Essence), License implementation.
