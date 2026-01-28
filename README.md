@@ -30,13 +30,7 @@ This project uses Maven Wrapper, no local Maven installation is required.
 ./mvnw clean test
 ./mvnw exec:java
 ```
-### Test your parameters:
 
-- To run DECIDE with custom inputs, edit    `decide/src/main/java/com/decide/Main.java` and update:
-    - `Point[] points`
-    - `Parameters parameters`
-    - `Connector[][] lcm`
-    - `boolean[] puv`
 
 
 ## Project Structure
@@ -49,23 +43,32 @@ This project uses Maven Wrapper, no local Maven installation is required.
 
 ## Testing
 Unit tests are implemented using JUnit 5. Each LIC and major component has corresponding test cases in the `decide/src/test/java/com/decide/` directory. There are always at least one positive and one negative test case for each class.
+### Test your parameters:
+
+- To run DECIDE with custom inputs, edit    `decide/src/main/java/com/decide/Main.java` and update:
+    - `Point[] points`
+    - `Parameters parameters`
+    - `Connector[][] lcm`
+    - `boolean[] puv`
 
 ## Statement of Contributions
-### Individual Contribution:
-#### Fabian W: 
-> Implemented functions for PUM, FUV, Demo, and LIC 1-3.
 
-#### Apeel Subedi
+### Individual Contribution:
+#### Dev. Fabian W: 
+> Implemented functions for PUM, FUV, Demo, and LIC 2-4,7.
+
+
+#### Dev. Apeel Subedi
 > Initialized repository setup; added and implemented CI to test and build on every push/pull; LIC(0, 6, 11); geometry helper functions
 
 
-#### Carl Isaksson: 
+#### Dev. Carl Isaksson: 
 > Geometry helper functions, LICs 8,10, documenting way of working (Essence), License implementation.
 
-#### Josef Kahoun
+#### Dev. Josef Kahoun
 > Implemented CMV evaluation, shared LIC interface, LICs 1, 12, 13, and related geometrical helper functions.
 
-#### Alexander Runebou:
+#### Dev. Alexander Runebou:
 >  Initialized maven setup, implemented core classes like Parameters, LICs 5, 9, 14, refactoring, documentation.
 
 ### Team Achievement
@@ -78,3 +81,12 @@ We implemented a two-branch workflow with protection rules on both `dev` and `ma
 
 > **Conventional Commits & Consistent Naming:**  
 We followed the Conventional Commits specification for commit messages throughout the project (e.g., `feat:`, `fix:`, `refactor:`, `test:`, `docs:`), making the change history easy to scan and review. In addition, we maintained consistent naming conventions across the codebase (classes, methods, variables, and packages) to keep the project readable and predictable for all team members.
+
+## Way of Working
+Our team operates at the **In Place** state according to the Essence framework. We have established agreed-upon tools, coding practices, version control, and testing strategies that all team members use and understand. A collaborative environment supports knowledge sharing and continuous feedback. To reach the **Working Well** state, we aim to apply practices more naturally and continuously refine our workflow without conscious effort.
+
+For a detailed description, see our Wiki page at: [Way of Working documentation](https://github.com/rippyboii/DD2480-DECIDE-V/wiki/Way-of-Working).
+
+
+## License
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software. See the `LICENSE` file for full details.
