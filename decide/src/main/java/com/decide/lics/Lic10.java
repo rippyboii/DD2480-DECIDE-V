@@ -15,6 +15,10 @@ public final class Lic10 implements Lic {
      * of a triangle with area greater than AREA1.
      *
      * The condition is not met when NUMPOINTS < 5.
+     * 
+     * @param points The set of points
+     * @param params The parameters
+     * @return true, if the condition is met, false otherwise
      */
     @Override 
     public boolean evaluate(Point[] points, Parameters params) {

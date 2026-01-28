@@ -8,6 +8,16 @@ public final class Lic3 implements Lic {
     public Lic3() {
     }
 
+    /**
+     * Checks condition for LIC3
+     * 
+     * There exists at least one set of three consecutive data points that are the vertices of a triangle
+     * with area greater than AREA1. (0 <= AREA1)
+     * 
+     * @param points The set of points
+     * @param params The parameters
+     * @return true, if the condition is met, false otherwise
+     */
     @Override
     public boolean evaluate(Point[] points, Parameters params) {
         if (points == null || params == null) {

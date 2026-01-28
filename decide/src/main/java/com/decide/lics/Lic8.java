@@ -13,8 +13,11 @@ public final class Lic8 implements Lic {
      * Checks if the points set contains three datapoints separated by
      * A_PTS and B_PTS intermediate points, which cannot be contained
      * within or on a circle of radius RADIUS1.
+     * 
+     * @param points The set of points
+     * @param params The parameters
+     * @return true, if the condition is met, false otherwise
      */
-
     @Override 
     public boolean evaluate(Point[] points, Parameters params) {
         int nPoints = points.length;

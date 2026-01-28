@@ -10,6 +10,10 @@ import com.decide.model.Point;
  * that are a distance greater than LENGTH1 apart.
  *
  * Condition is NOT met if NUMPOINTS < 2.
+ * 
+ * @param points The set of points
+ * @param params The parameters
+ * @return true, if the condition is met, false otherwise
  */
 public final class Lic0 implements Lic {
 
