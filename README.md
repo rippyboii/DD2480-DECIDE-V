@@ -22,7 +22,7 @@ Verify your Java installation by running:
 java -version
 ```
 
-This project uses Maven Wrapper, no local Maven installation is required.
+This project uses Maven Wrapper, no local Maven installation is required, but Maven version 3.9.12 was used locally.
 
 ## Build and Run
 
